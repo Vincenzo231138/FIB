@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bewerbungsportfolio - Vincenzo Young</title>
+    <title>FBI Leadership Bewerbung - Vincenzo Young</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -13,36 +13,38 @@
         }
 
         :root {
-            --primary-dark: #0a0a0a;
-            --secondary-dark: #1a1a1a;
-            --accent-gray: #2d2d2d;
-            --light-gray: #3d3d3d;
+            --primary-black: #121212;
+            --secondary-black: #1e1e1e;
+            --dark-gray: #2a2a2a;
+            --medium-gray: #3d3d3d;
+            --light-gray: #505050;
             --text-white: #ffffff;
+            --text-light: #e0e0e0;
             --text-gray: #b0b0b0;
-            --highlight: #4a4a4a;
-            --fbi-blue: #003366;
-            --gold: #d4af37;
+            --fbi-blue: #1e3a8a;
+            --fbi-blue-light: #2563eb;
+            --accent-silver: #c0c0c0;
         }
 
         body {
             font-family: 'Segoe UI', 'Arial', sans-serif;
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
+            background: linear-gradient(135deg, var(--primary-black) 0%, var(--secondary-black) 100%);
             color: var(--text-white);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* Hero FBI Section */
+        /* FBI Hero Section */
         .fbi-hero {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(180deg, #000000 0%, #0d0d0d 50%, #1a1a1a 100%);
+            background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 50%, #2a2a2a 100%);
             position: relative;
             overflow: hidden;
-            border-bottom: 3px solid var(--light-gray);
+            border-bottom: 3px solid var(--medium-gray);
         }
 
         .fbi-hero::before {
@@ -56,18 +58,18 @@
                 repeating-linear-gradient(
                     90deg,
                     transparent,
-                    transparent 50px,
-                    rgba(255,255,255,0.02) 50px,
-                    rgba(255,255,255,0.02) 51px
+                    transparent 60px,
+                    rgba(255,255,255,0.03) 60px,
+                    rgba(255,255,255,0.03) 61px
                 ),
                 repeating-linear-gradient(
                     0deg,
                     transparent,
-                    transparent 50px,
-                    rgba(255,255,255,0.02) 50px,
-                    rgba(255,255,255,0.02) 51px
+                    transparent 60px,
+                    rgba(255,255,255,0.03) 60px,
+                    rgba(255,255,255,0.03) 61px
                 );
-            opacity: 0.3;
+            opacity: 0.4;
         }
 
         .fbi-logo-container {
@@ -78,27 +80,27 @@
         }
 
         .fbi-badge {
-            width: 200px;
-            height: 200px;
-            margin: 0 auto 30px;
-            background: radial-gradient(circle, #1a1a1a 0%, #000000 100%);
+            width: 220px;
+            height: 220px;
+            margin: 0 auto 40px;
+            background: radial-gradient(circle, var(--secondary-black) 0%, var(--primary-black) 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 5px solid var(--light-gray);
+            border: 6px solid var(--medium-gray);
             box-shadow: 
-                0 0 30px rgba(0,51,102,0.5),
-                inset 0 0 20px rgba(0,51,102,0.3);
+                0 0 40px rgba(30,58,138,0.6),
+                inset 0 0 30px rgba(30,58,138,0.3);
             position: relative;
         }
 
         .fbi-badge::before {
             content: '';
             position: absolute;
-            width: 180px;
-            height: 180px;
-            border: 2px solid var(--fbi-blue);
+            width: 200px;
+            height: 200px;
+            border: 3px solid var(--fbi-blue-light);
             border-radius: 50%;
             animation: pulse 3s infinite;
         }
@@ -108,41 +110,43 @@
         }
 
         .fbi-text {
-            font-size: 72px;
+            font-size: 80px;
             font-weight: 900;
             color: var(--text-white);
             text-shadow: 
-                0 0 10px rgba(0,51,102,0.8),
-                2px 2px 4px rgba(0,0,0,0.8);
-            letter-spacing: 8px;
+                0 0 20px rgba(37,99,235,0.8),
+                3px 3px 6px rgba(0,0,0,0.9);
+            letter-spacing: 10px;
             margin-bottom: 10px;
         }
 
         .fbi-subtitle {
-            font-size: 14px;
-            color: var(--text-gray);
-            letter-spacing: 3px;
+            font-size: 15px;
+            color: var(--accent-silver);
+            letter-spacing: 4px;
             text-transform: uppercase;
+            font-weight: 600;
         }
 
         .hero-title {
-            font-size: 48px;
+            font-size: 52px;
             font-weight: 700;
             color: var(--text-white);
-            margin: 40px 0 20px;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+            margin: 50px 0 25px;
+            text-shadow: 3px 3px 10px rgba(0,0,0,0.8);
         }
 
         .hero-subtitle {
-            font-size: 20px;
-            color: var(--text-gray);
-            margin-bottom: 50px;
+            font-size: 22px;
+            color: var(--text-light);
+            margin-bottom: 60px;
+            font-weight: 300;
         }
 
         @keyframes fadeInDown {
             from {
                 opacity: 0;
-                transform: translateY(-50px);
+                transform: translateY(-60px);
             }
             to {
                 opacity: 1;
@@ -156,8 +160,8 @@
                 opacity: 0.5;
             }
             50% {
-                transform: scale(1.05);
-                opacity: 0.8;
+                transform: scale(1.08);
+                opacity: 0.9;
             }
         }
 
@@ -165,34 +169,34 @@
         .nav-container {
             position: sticky;
             top: 0;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 2px solid var(--light-gray);
+            background: rgba(18, 18, 18, 0.97);
+            backdrop-filter: blur(12px);
+            border-bottom: 2px solid var(--medium-gray);
             z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 25px rgba(0,0,0,0.6);
         }
 
         nav {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
-            padding: 20px 30px;
+            padding: 22px 35px;
         }
 
         nav ul {
             list-style: none;
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 35px;
             flex-wrap: wrap;
         }
 
         nav a {
             color: var(--text-gray);
             text-decoration: none;
-            font-size: 16px;
+            font-size: 17px;
             font-weight: 500;
-            padding: 10px 20px;
-            border-radius: 5px;
+            padding: 12px 25px;
+            border-radius: 6px;
             transition: all 0.3s ease;
             position: relative;
         }
@@ -204,7 +208,7 @@
             left: 50%;
             width: 0;
             height: 2px;
-            background: var(--text-white);
+            background: var(--fbi-blue-light);
             transition: all 0.3s ease;
             transform: translateX(-50%);
         }
@@ -212,7 +216,7 @@
         nav a:hover,
         nav a.active {
             color: var(--text-white);
-            background: var(--accent-gray);
+            background: var(--dark-gray);
         }
 
         nav a:hover::after,
@@ -222,99 +226,101 @@
 
         /* Main Container */
         .container {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
-            padding: 60px 30px;
+            padding: 70px 35px;
         }
 
         /* Personal Info Section */
         .info-section {
-            background: linear-gradient(135deg, var(--secondary-dark) 0%, var(--accent-gray) 100%);
-            border-radius: 15px;
-            padding: 50px;
-            margin-bottom: 50px;
-            border: 2px solid var(--light-gray);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            background: linear-gradient(135deg, var(--secondary-black) 0%, var(--dark-gray) 100%);
+            border-radius: 16px;
+            padding: 55px;
+            margin-bottom: 55px;
+            border: 2px solid var(--medium-gray);
+            box-shadow: 0 12px 45px rgba(0,0,0,0.6);
         }
 
         .info-section h2 {
-            font-size: 36px;
-            margin-bottom: 40px;
+            font-size: 38px;
+            margin-bottom: 45px;
             color: var(--text-white);
             text-align: center;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            border-bottom: 3px solid var(--light-gray);
+            letter-spacing: 3px;
+            border-bottom: 3px solid var(--fbi-blue);
             padding-bottom: 20px;
         }
 
         .info-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 28px;
+            margin-top: 35px;
         }
 
         .info-card {
-            background: rgba(0,0,0,0.4);
-            padding: 25px;
-            border-radius: 10px;
-            border-left: 4px solid var(--fbi-blue);
+            background: rgba(0,0,0,0.5);
+            padding: 28px;
+            border-radius: 12px;
+            border-left: 5px solid var(--fbi-blue-light);
             transition: all 0.3s ease;
         }
 
         .info-card:hover {
-            transform: translateX(10px);
-            background: rgba(0,0,0,0.6);
-            border-left-color: var(--text-white);
+            transform: translateX(12px);
+            background: rgba(0,0,0,0.7);
+            border-left-color: var(--accent-silver);
+            box-shadow: 0 6px 20px rgba(37,99,235,0.3);
         }
 
         .info-label {
-            font-size: 13px;
+            font-size: 14px;
             color: var(--text-gray);
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .info-value {
-            font-size: 22px;
+            font-size: 24px;
             color: var(--text-white);
             font-weight: 600;
         }
 
         /* Content Section */
         .content-section {
-            background: var(--secondary-dark);
-            border-radius: 15px;
-            padding: 50px;
-            margin-bottom: 50px;
-            border: 2px solid var(--light-gray);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            background: var(--secondary-black);
+            border-radius: 16px;
+            padding: 55px;
+            margin-bottom: 55px;
+            border: 2px solid var(--medium-gray);
+            box-shadow: 0 12px 45px rgba(0,0,0,0.6);
         }
 
         .content-section h2 {
-            font-size: 32px;
+            font-size: 34px;
             color: var(--text-white);
-            margin-bottom: 30px;
-            padding-bottom: 15px;
-            border-bottom: 3px solid var(--light-gray);
+            margin-bottom: 35px;
+            padding-bottom: 18px;
+            border-bottom: 3px solid var(--fbi-blue);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
         }
 
         .content-section h3 {
-            font-size: 24px;
-            color: var(--text-gray);
-            margin-top: 30px;
-            margin-bottom: 15px;
+            font-size: 26px;
+            color: var(--text-light);
+            margin-top: 35px;
+            margin-bottom: 18px;
+            font-weight: 600;
         }
 
         .content-section p {
             color: var(--text-gray);
-            line-height: 1.8;
-            margin-bottom: 20px;
-            font-size: 16px;
+            line-height: 1.9;
+            margin-bottom: 22px;
+            font-size: 17px;
         }
 
         .content-section ul {
@@ -324,174 +330,206 @@
 
         .content-section li {
             color: var(--text-gray);
-            margin-bottom: 15px;
-            padding-left: 30px;
+            margin-bottom: 18px;
+            padding-left: 35px;
             position: relative;
-            line-height: 1.7;
+            line-height: 1.8;
         }
 
         .content-section li::before {
             content: '▸';
             position: absolute;
             left: 0;
-            color: var(--fbi-blue);
+            color: var(--fbi-blue-light);
             font-weight: bold;
-            font-size: 18px;
+            font-size: 20px;
         }
 
         /* Highlight Boxes */
         .highlight-box {
-            background: linear-gradient(135deg, var(--accent-gray) 0%, var(--light-gray) 100%);
-            padding: 30px;
-            border-radius: 10px;
-            border-left: 5px solid var(--fbi-blue);
-            margin: 30px 0;
+            background: linear-gradient(135deg, var(--dark-gray) 0%, var(--medium-gray) 100%);
+            padding: 35px;
+            border-radius: 12px;
+            border-left: 6px solid var(--fbi-blue-light);
+            margin: 35px 0;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
         }
 
         .highlight-box h3 {
             color: var(--text-white);
             margin-top: 0;
+            margin-bottom: 20px;
         }
 
         .highlight-box p {
-            color: var(--text-gray);
+            color: var(--text-light);
+            margin-bottom: 12px;
+        }
+
+        /* Vice Leaders Section */
+        .vice-section {
+            background: linear-gradient(135deg, var(--fbi-blue) 0%, var(--fbi-blue-light) 100%);
+            border-radius: 16px;
+            padding: 50px;
+            margin-bottom: 55px;
+            box-shadow: 0 12px 45px rgba(30,58,138,0.4);
+            border: 2px solid var(--fbi-blue-light);
+        }
+
+        .vice-section h2 {
+            font-size: 36px;
+            color: var(--text-white);
+            text-align: center;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .vice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .vice-card {
+            background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .vice-card:hover {
+            transform: translateY(-8px);
+            background: rgba(0,0,0,0.5);
+            border-color: var(--accent-silver);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+        }
+
+        .vice-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .vice-name {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--text-white);
             margin-bottom: 10px;
+        }
+
+        .vice-role {
+            font-size: 16px;
+            color: var(--accent-silver);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Department Cards */
+        .department-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 28px;
+            margin-top: 35px;
+        }
+
+        .department-card {
+            background: linear-gradient(135deg, var(--dark-gray) 0%, var(--secondary-black) 100%);
+            padding: 35px;
+            border-radius: 12px;
+            border: 2px solid var(--medium-gray);
+            transition: all 0.3s ease;
+        }
+
+        .department-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(37,99,235,0.3);
+            border-color: var(--fbi-blue-light);
+        }
+
+        .department-card h3 {
+            color: var(--text-white);
+            margin-bottom: 18px;
+            font-size: 22px;
+        }
+
+        .department-card p {
+            color: var(--text-gray);
+            font-size: 16px;
         }
 
         /* Rank System */
         .rank-container {
-            background: var(--accent-gray);
-            padding: 30px;
-            border-radius: 10px;
-            margin-top: 30px;
+            background: var(--dark-gray);
+            padding: 35px;
+            border-radius: 12px;
+            margin-top: 35px;
+        }
+
+        .rank-columns {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 12px;
         }
 
         .rank-item {
-            background: rgba(0,0,0,0.3);
-            padding: 15px 25px;
+            background: rgba(0,0,0,0.4);
+            padding: 16px 28px;
             margin-bottom: 10px;
-            border-radius: 8px;
-            border-left: 4px solid var(--light-gray);
-            color: var(--text-gray);
+            border-radius: 10px;
+            border-left: 4px solid var(--medium-gray);
+            color: var(--text-light);
             transition: all 0.3s ease;
             font-size: 16px;
         }
 
         .rank-item:hover {
             transform: translateX(10px);
-            background: rgba(0,0,0,0.5);
-            border-left-color: var(--fbi-blue);
+            background: rgba(0,0,0,0.6);
+            border-left-color: var(--fbi-blue-light);
             color: var(--text-white);
         }
 
         .rank-item.top-rank {
-            background: linear-gradient(90deg, rgba(212,175,55,0.2) 0%, rgba(0,0,0,0.3) 100%);
-            border-left-color: var(--gold);
+            background: linear-gradient(90deg, rgba(192,192,192,0.2) 0%, rgba(0,0,0,0.4) 100%);
+            border-left-color: var(--accent-silver);
             color: var(--text-white);
             font-weight: 600;
-        }
-
-        /* Department Cards */
-        .department-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-
-        .department-card {
-            background: linear-gradient(135deg, var(--accent-gray) 0%, var(--secondary-dark) 100%);
-            padding: 30px;
-            border-radius: 10px;
-            border: 2px solid var(--light-gray);
-            transition: all 0.3s ease;
-        }
-
-        .department-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,51,102,0.3);
-            border-color: var(--fbi-blue);
-        }
-
-        .department-card h3 {
-            color: var(--text-white);
-            margin-bottom: 15px;
-            font-size: 20px;
-        }
-
-        .department-card p {
-            color: var(--text-gray);
-            font-size: 15px;
-        }
-
-        /* Team Grid */
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .team-member {
-            background: rgba(0,0,0,0.4);
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            border: 2px solid var(--light-gray);
-            transition: all 0.3s ease;
-        }
-
-        .team-member:hover {
-            background: rgba(0,0,0,0.6);
-            transform: scale(1.05);
-            border-color: var(--fbi-blue);
-        }
-
-        .team-member-icon {
-            font-size: 36px;
-            margin-bottom: 10px;
-        }
-
-        .team-member-name {
-            color: var(--text-white);
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .team-member-role {
-            color: var(--text-gray);
-            font-size: 13px;
         }
 
         /* Footer */
         footer {
-            background: var(--primary-dark);
-            padding: 40px 30px;
+            background: var(--primary-black);
+            padding: 45px 35px;
             text-align: center;
-            border-top: 3px solid var(--light-gray);
-            margin-top: 80px;
+            border-top: 3px solid var(--medium-gray);
+            margin-top: 90px;
         }
 
         footer p {
             color: var(--text-gray);
-            margin: 10px 0;
+            margin: 12px 0;
+            font-size: 16px;
         }
 
         /* Scroll to Top */
         .scroll-top {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: var(--accent-gray);
+            bottom: 35px;
+            right: 35px;
+            width: 55px;
+            height: 55px;
+            background: var(--dark-gray);
             color: var(--text-white);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            border: 2px solid var(--light-gray);
+            border: 2px solid var(--medium-gray);
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s ease;
@@ -504,27 +542,28 @@
         }
 
         .scroll-top:hover {
-            background: var(--fbi-blue);
-            transform: translateY(-5px);
+            background: var(--fbi-blue-light);
+            transform: translateY(-6px);
+            box-shadow: 0 8px 20px rgba(37,99,235,0.4);
         }
 
         /* Responsive */
         @media (max-width: 768px) {
             .fbi-text {
-                font-size: 48px;
+                font-size: 56px;
             }
 
             .hero-title {
-                font-size: 32px;
+                font-size: 36px;
             }
 
             .content-section {
-                padding: 30px 20px;
+                padding: 35px 22px;
             }
 
             nav ul {
                 flex-direction: column;
-                gap: 10px;
+                gap: 12px;
             }
 
             .info-grid {
@@ -532,6 +571,10 @@
             }
 
             .department-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .rank-columns {
                 grid-template-columns: 1fr;
             }
         }
@@ -547,8 +590,8 @@
                     <div class="fbi-subtitle">Federal Bureau</div>
                 </div>
             </div>
-            <h1 class="hero-title">Bewerbungsportfolio</h1>
-            <p class="hero-subtitle">Vincenzo Young | Professionelle Bewerbungen</p>
+            <h1 class="hero-title">Leadership Bewerbung</h1>
+            <p class="hero-subtitle">Vincenzo Young | Federal Investigation Bureau</p>
         </div>
     </div>
 
@@ -557,17 +600,19 @@
         <nav>
             <ul>
                 <li><a href="#personal-info" class="active">Persönliche Daten</a></li>
-                <li><a href="#fbi-bewerbung">FBI Bewerbung</a></li>
-                <li><a href="#afls-bewerbung">AfLS Bewerbung</a></li>
-                <li><a href="#kontakt">Kontakt</a></li>
+                <li><a href="#motivation">Motivation</a></li>
+                <li><a href="#fuehrung">Führungsqualitäten</a></li>
+                <li><a href="#konzept">Konzept</a></li>
+                <li><a href="#rangsystem">Rangsystem</a></li>
+                <li><a href="#verbesserungen">Verbesserungen</a></li>
             </ul>
         </nav>
     </div>
 
     <div class="container">
-        <!-- Personal Information Section -->
+        <!-- Personal Information -->
         <section class="info-section" id="personal-info">
-            <h2><i class="fas fa-user-circle"></i> Persönliche Informationen</h2>
+            <h2><i class="fas fa-id-card"></i> Persönliche Informationen</h2>
             <div class="info-grid">
                 <div class="info-card">
                     <div class="info-label">OOC Name</div>
@@ -586,7 +631,7 @@
                     <div class="info-value">Vincenzo Young</div>
                 </div>
                 <div class="info-card">
-                    <div class="info-label">Staatsbürger-ID</div>
+                    <div class="info-label">ID</div>
                     <div class="info-value">160115</div>
                 </div>
                 <div class="info-card">
@@ -604,250 +649,190 @@
             </div>
         </section>
 
-        <!-- FBI Application Section -->
-        <section class="content-section" id="fbi-bewerbung">
-            <h2><i class="fas fa-shield-alt"></i> FBI Leadership Bewerbung</h2>
+        <!-- Vice Leaders -->
+        <section class="vice-section">
+            <h2><i class="fas fa-user-shield"></i> Stellvertretende Direktoren</h2>
+            <div class="vice-grid">
+                <div class="vice-card">
+                    <div class="vice-icon">👤</div>
+                    <div class="vice-name">Marvin Benko</div>
+                    <div class="vice-role">Deputy Director</div>
+                </div>
+                <div class="vice-card">
+                    <div class="vice-icon">👤</div>
+                    <div class="vice-name">Samir Kasalla</div>
+                    <div class="vice-role">Deputy Director</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Motivation -->
+        <section class="content-section" id="motivation">
+            <h2><i class="fas fa-bullseye"></i> Warum ich Leader des FBI werden möchte</h2>
+            <p>
+                In den vergangenen zwei Jahren, die ich auf der Insel verbracht habe, konnte ich viele verschiedene Erfahrungen sammeln. Meine Reise begann bei der inoffiziellen Familie 18th Street Gang und führte über die NG zu den Ballas und Bloods bis hin zum SAHP. Insbesondere half mir die Kombination der Zusammenarbeit mit allen staatlichen Organisationen, gepaart mit den Einblicken in das Leben der inoffiziellen Familien und Gangs, ein ganzheitliches Bild zu erlangen.
+            </p>
+            <p>
+                Gerade dieses ist essenziell, um eine Organisation erfolgreich führen zu können. Mein Wunsch Leader zu werden, rührt daher, all diese Erfahrungen in eine für mich neue Organisation miteinfließen zu lassen. Ziel ist es, das FIB von Grund auf neu aufzurollen und so für Spaß und Abwechslung zu sorgen. Nach meinen zwei Vize-Leader Posten möchte ich nun gern meine eigene Organisation formen.
+            </p>
+        </section>
+
+        <!-- Führungsqualitäten -->
+        <section class="content-section" id="fuehrung">
+            <h2><i class="fas fa-medal"></i> Was mich als Leader auszeichnet</h2>
+            <p>
+                Meine Führungsphilosophie basiert auf einem ausgewogenen Mix aus Disziplin und Ordnung, gepaart mit einem unverzichtbaren Sinn für Humor. Die Mitarbeit sollte nicht als reine Arbeit wahrgenommen werden, sondern auch stetig Spaß bereiten. Besonders wichtig empfinde ich das Aufrechterhalten eines offenen Ohres für Anliegen Dritter und eine objektive Situationsbewertung.
+            </p>
+            <p>
+                Meine Fähigkeiten als Leader konnte ich bereits in der Position des Vize-Leaders in der NG und im SAHP unter Beweis stellen.
+            </p>
+        </section>
+
+        <!-- Konzept -->
+        <section class="content-section" id="konzept">
+            <h2><i class="fas fa-lightbulb"></i> Konzept der Organisation</h2>
             
-            <h3>Warum ich Leader des FBI werden möchte</h3>
-            <p>
-                In den letzten zwei Jahren auf der Insel hatte ich die Möglichkeit, vielseitige Erfahrungen zu sammeln. Mein Weg begann bei der 18th Street Gang und führte mich über die National Guard zu den Ballas und Bloods, bis ich schließlich beim SAHP gelandet bin. Besonders die Zusammenarbeit mit allen staatlichen Organisationen, kombiniert mit den Einblicken in das Leben inoffizieller Familien und Gangs, hat mir ein umfassendes Verständnis vermittelt.
-            </p>
-            <p>
-                Genau dieses ganzheitliche Bild ist notwendig, um eine Organisation wie das FBI erfolgreich zu führen. Mein Ziel ist es, all diese Erfahrungen in eine für mich neue Organisation einzubringen. Ich möchte das FIB von Grund auf neu strukturieren und für Spaß sowie Abwechslung sorgen. Nach zwei erfolgreichen Vize-Leader Positionen ist es nun an der Zeit, meine eigene Organisation zu formen.
-            </p>
-
-            <h3>Meine Stärken als Leader</h3>
-            <p>
-                Meine Führungsphilosophie basiert auf einem ausgewogenen Mix: Disziplin und Ordnung sind wichtig, aber ein gesunder Sinn für Humor darf nicht fehlen. Die Arbeit sollte nicht nur als Pflicht wahrgenommen werden, sondern auch Freude bereiten. Mir ist es wichtig, immer ein offenes Ohr für Anliegen zu haben und Situationen objektiv zu bewerten.
-            </p>
-            <p>
-                Diese Fähigkeiten konnte ich bereits als Vize-Leader bei der National Guard und beim SAHP unter Beweis stellen. Ich setze auf klare Kommunikation, faire Entscheidungen und ein Team, das sich gegenseitig unterstützt.
-            </p>
-
             <div class="highlight-box">
-                <h3>Konzept: Eliteeinheit im Dienst der Gerechtigkeit</h3>
+                <h3>Eliteeinheit im Dienst der Gerechtigkeit</h3>
                 <p>
-                    Das Federal Investigation Bureau soll als Inbegriff von Zuverlässigkeit, Fachwissen und unermüdlichem Engagement gegen das Verbrechen stehen. Im FIB vereinen sich die klügsten Köpfe und die tapfersten Herzen, um die Nation vor den Schatten der Kriminalität und Korruption zu schützen.
+                    Willkommen im Zentrum der Gerechtigkeit und Exzellenz, wo das Federal Investigation Bureau als Inbegriff von Zuverlässigkeit, Fachwissen und unermüdlichem Engagement gegen das Verbrechen steht. Im FIB vereinen sich die klügsten Köpfe und die tapfersten Herzen, um die Nation vor den Schatten der Kriminalität und Korruption zu schützen.
                 </p>
             </div>
 
-            <h3>Grundkonzept der Neugestaltung</h3>
+            <h3>Elitäre Organisation</h3>
             <p>
-                Das FIB benötigt eine grundlegende Umstrukturierung. Die Anforderungen für die Aufnahme werden deutlich erhöht. Als höchste Ermittlungsbehörde sollte das FIB nur mit Agents besetzt sein, auf deren Kompetenz und Zuverlässigkeit man sich verlassen kann.
-            </p>
-            <p>
-                Eine zentrale Bedingung für die Aufnahme wird vorherige Erfahrung in einer anderen exekutiven staatlichen Organisation sein. Zudem möchte ich die Anzahl der Mitglieder reduzieren, um sicherzustellen, dass nur erfahrene und fähige Mitarbeiter Teil der Organisation werden. Die Grundaufgaben des FIB, wie die Wanted-Jagd, sollen wieder voll ausgeschöpft werden.
+                Das FIB repräsentiert die Elite der Strafverfolgungsbehörden, eine Organisation, deren Gründung auf dem Prinzip der Exzellenz beruht. Jedes Mitglied des FIB wurde nach strengsten Standards ausgewählt und ausgebildet, um sicherzustellen, dass nur die Besten der Besten unsere Reihen stärken. Unsere Agenten sind nicht nur hochqualifiziert, sondern auch leidenschaftlich engagiert, um den Bürgern mit höchster Professionalität und Integrität zu dienen.
             </p>
 
-            <h3>Abteilungsstruktur</h3>
+            <h3>Effektive Korruptionsverfolgung</h3>
+            <p>
+                Das FIB nimmt eine führende Rolle im Kampf gegen Korruption ein. Mit einer spezialisierten Division für die Bekämpfung korrupter Praktiken sowohl innerhalb staatlicher Institutionen als auch im privaten Sektor arbeiten wir unermüdlich daran, Gerechtigkeit zu gewährleisten und das Vertrauen der Öffentlichkeit in unsere Institutionen zu stärken. Unsere rigorosen Untersuchungen und unser Engagement für Transparenz setzen Maßstäbe im Kampf gegen die Korruption.
+            </p>
+
+            <h3>Verbrecherjagd (Wantedjagd)</h3>
+            <p>
+                Das FIB ist an der Spitze der Fahndung nach hochrangigen Verbrechern. Unsere spezialisierten Einheiten, ausgestattet mit den modernsten Technologien und Methoden, sind unermüdlich im Einsatz, um jene zur Rechenschaft zu ziehen, die die Sicherheit und den Frieden unserer Bürger bedrohen. Durch strategische Ermittlungen, verdeckte Operationen und die Zusammenarbeit mit Partnern sorgen wir dafür, dass keine Bedrohung unadressiert bleibt.
+            </p>
+
+            <div class="highlight-box">
+                <h3>Grundkonzept</h3>
+                <p>
+                    Es ist geplant, das FIB einer grundlegenden Neugestaltung zu unterziehen. Besonders die Anforderungen für die Aufnahme in die Organisation werden deutlich angehoben. Das FIB als höchste Ermittlungsbehörde sollte nur mit Agents besetzt sein, auf deren Kompetenz und Zuverlässigkeit uneingeschränkt Verlass ist.
+                </p>
+                <p>
+                    Eine wesentliche Bedingung für die Aufnahme in die Organisation wird vorherige Erfahrung in einer anderen exekutiven staatlichen Organisation sein. Zudem soll die Zahl der Mitglieder reduziert werden, um sicherzustellen, dass nur erfahrene und fähige Mitarbeiter Teil der Organisation werden. Besonders sollen auch die Grundaufgaben des FIBs, wie Wantedjagd, voll ausgeschöpft werden.
+                </p>
+            </div>
+
+            <h3>Abteilungen</h3>
             <div class="department-grid">
                 <div class="department-card">
                     <h3>FIB Corruption Office</h3>
                     <p><strong>FIB Integrity & Oversight</strong></p>
-                    <p>Spezialisiert auf Korruptionsbekämpfung innerhalb staatlicher und privater Strukturen.</p>
+                    <p>Korruptionsbekämpfung</p>
                 </div>
                 <div class="department-card">
                     <h3>FIB Talent Forge</h3>
                     <p><strong>FIB Personnel & Training Nexus</strong></p>
-                    <p>Zuständig für Personalwesen und hochwertige Ausbildungsprogramme.</p>
+                    <p>HR und Ausbildungen</p>
                 </div>
                 <div class="department-card">
                     <h3>FIB Federal Taskforce</h3>
                     <p><strong>FIB Gang Deterrence & Family Crimes</strong></p>
-                    <p>Spezialeinheit für Gang- und Familienkriminalität.</p>
+                    <p>Gang und Familien Spezialeinheit</p>
                 </div>
             </div>
 
-            <h3>Rangsystem</h3>
-            <div class="rank-container">
-                <div class="rank-item top-rank">12 [FIB] Director</div>
-                <div class="rank-item top-rank">11 [FIB] Deputy Director</div>
-                <div class="rank-item top-rank">10 [FIB] Assistant Director</div>
-                <div class="rank-item">9 [FIB] Chief Executive</div>
-                <div class="rank-item">8 [FIB] Chief of Staff</div>
-                <div class="rank-item">7 [FIB] Spy Agent</div>
-                <div class="rank-item">6 [FIB] Elite Agent</div>
-                <div class="rank-item">5 [FIB] Special Agent in charge</div>
-                <div class="rank-item">4 [FIB] Supervisory Special Agent</div>
-                <div class="rank-item">3 [FIB] Special Agent</div>
-                <div class="rank-item">2 [FIB] Agent</div>
-                <div class="rank-item">1 [FIB] Probationary Agent</div>
-            </div>
+            <h3>Vorgeschichte</h3>
+            <p>
+                Das Federal Investigation Bureau wurde als Reaktion auf die wachsende organisierte Kriminalität und Korruption gegründet. In einer Zeit, in der das Vertrauen in staatliche Institutionen erschüttert war, entstand die Vision einer Eliteeinheit, die unabhängig, professionell und mit höchster Integrität agiert.
+            </p>
+            <p>
+                Über die Jahre hat sich das FIB als unverzichtbare Säule der nationalen Sicherheit etabliert. Von spektakulären Fällen der Korruptionsaufdeckung bis hin zur Zerschlagung krimineller Netzwerke – das FIB hat stets bewiesen, dass Gerechtigkeit siegt, wenn sie mit Entschlossenheit und Professionalität verfolgt wird.
+            </p>
+            <p>
+                Heute steht das FIB vor neuen Herausforderungen. Die Kriminalität hat sich verändert, ist digitaler und vernetzter geworden. Doch unsere Mission bleibt unverändert: Den Bürgern zu dienen, die Gesetze zu wahren und für eine sichere Zukunft zu kämpfen.
+            </p>
+        </section>
 
-            <h3>Verbesserungsvorschläge für das Rollenspiel</h3>
+        <!-- Rangsystem -->
+        <section class="content-section" id="rangsystem">
+            <h2><i class="fas fa-sitemap"></i> Rangsystem</h2>
+            <div class="rank-container">
+                <div class="rank-columns">
+                    <div>
+                        <div class="rank-item top-rank">30 [FIB] Director</div>
+                        <div class="rank-item top-rank">29 [FIB] Deputy Director</div>
+                        <div class="rank-item top-rank">28 [FIB] Assistant Director</div>
+                        <div class="rank-item top-rank">27 [FIB] Chief Executive</div>
+                        <div class="rank-item top-rank">26 [FIB] Chief of Staff</div>
+                        <div class="rank-item">25 [FIB] Spy Agent</div>
+                        <div class="rank-item">24 [FIB] Elite Agent</div>
+                        <div class="rank-item">23 [FIB] Special Agent in charge</div>
+                        <div class="rank-item">22 [FIB] Supervisory Special Agent</div>
+                        <div class="rank-item">21 [FIB] Special Agent</div>
+                        <div class="rank-item">20 [FIB] Senior Field Agent</div>
+                        <div class="rank-item">19 [FIB] Field Agent</div>
+                        <div class="rank-item">18 [FIB] Intelligence Analyst</div>
+                        <div class="rank-item">17 [FIB] Operations Specialist</div>
+                        <div class="rank-item">16 [FIB] Tactical Agent</div>
+                    </div>
+                    <div>
+                        <div class="rank-item">15 [FIB] Investigation Agent</div>
+                        <div class="rank-item">14 [FIB] Field Operative</div>
+                        <div class="rank-item">13 [FIB] Senior Agent</div>
+                        <div class="rank-item">12 [FIB] Forensic Specialist</div>
+                        <div class="rank-item">11 [FIB] Surveillance Agent</div>
+                        <div class="rank-item">10 [FIB] Crime Analyst</div>
+                        <div class="rank-item">9 [FIB] Field Agent Trainee</div>
+                        <div class="rank-item">8 [FIB] Junior Agent</div>
+                        <div class="rank-item">7 [FIB] Agent</div>
+                        <div class="rank-item">6 [FIB] Associate Agent</div>
+                        <div class="rank-item">5 [FIB] Probationary Agent</div>
+                        <div class="rank-item">4 [FIB] Trainee Agent</div>
+                        <div class="rank-item">3 [FIB] Recruit</div>
+                        <div class="rank-item">2 [FIB] Cadet</div>
+                        <div class="rank-item">1 [FIB] Applicant</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Verbesserungsvorschläge -->
+        <section class="content-section" id="verbesserungen">
+            <h2><i class="fas fa-chart-line"></i> Verbesserungsvorschläge für das Rollenspiel</h2>
             <ul>
-                <li>Erhöhung des Aufnahmestandards zur Sicherung von Kompetenz</li>
-                <li>Beständige Wanted-Jagd mit dem Ziel, die Anzahl gesuchter Verbrecher niedrig zu halten</li>
-                <li>Regelmäßige Übungen mit anderen Organisationen zur Verbesserung der Zusammenarbeit</li>
-                <li>Ausarbeitung konsequenter Leitfäden für abwechslungsreiche Verhandlungen bei Überfällen</li>
+                <li>Erhöhung des Aufnahmestandards zur Sicherung von Kompetenz eines jeden Mitarbeiters</li>
+                <li>Beständige Wantedjagd mit dem Ziel die Anzahl der gesuchten Verbrecher so niedrig wie möglich zu halten</li>
+                <li>Einführung von regelmäßigen Übungen mit anderen Organisationen zur Verbesserung der Zusammenarbeit</li>
+                <li>Ausarbeitung konsequenter Leitfäden um die Verhandlungen bei verschiedenen Überfällen abwechslungsreich zu gestalten</li>
                 <li>Einbeziehung anderer Organisationen in taktische Einsätze (sofern möglich)</li>
                 <li>Umfangreiche Undercover-Ermittlungen</li>
             </ul>
-        </section>
-
-        <!-- AfLS Application Section -->
-        <section class="content-section" id="afls-bewerbung">
-            <h2><i class="fas fa-landmark"></i> AfLS Gouverneur Bewerbung</h2>
-            
-            <h3>Vorstellung - Vincenzo Young</h3>
-            <p>
-                Sehr geehrte Mitbürgerinnen und Mitbürger von Los Santos,
-            </p>
-            <p>
-                ich bewerbe mich als Kandidat für das Amt des Gouverneurs von Los Santos. Unsere Stadt steht vor wichtigen Entscheidungen, und ich möchte meinen Beitrag zu einer besseren Zukunft leisten.
-            </p>
-            <p>
-                Los Santos hat großes Potenzial – voller Menschen mit Träumen und Ideen. Doch oft werden diese durch unnötige Bürokratie, fehlende Sicherheit und mangelnde wirtschaftliche Perspektiven gebremst. Das möchte ich ändern.
-            </p>
-
-            <h3>Warum ich Gouverneur werden möchte</h3>
-            <p>
-                In den letzten Jahren habe ich mir ein umfassendes Bild unserer Stadt gemacht. Ich habe mit Unternehmern gesprochen, die unter hohen Steuern leiden. Mit Familien, die sich mehr Sicherheit in ihrer Nachbarschaft wünschen. Mit Bürgern, die sich von der Politik alleingelassen fühlen.
-            </p>
-            <p>
-                Diese Gespräche haben mir gezeigt: Los Santos braucht keine schönen Worte, sondern konkrete Taten. Politiker, die Verantwortung übernehmen und praktische Lösungen umsetzen. Genau das möchte ich bieten.
-            </p>
-
-            <h3>Was mich als Leader auszeichnet</h3>
-            <p>
-                Ich bringe Erfahrung aus verschiedenen Bereichen mit – sowohl aus staatlichen Organisationen als auch aus dem privaten Sektor. Diese vielseitige Perspektive ermöglicht es mir, Probleme von allen Seiten zu betrachten und ausgewogene Entscheidungen zu treffen.
-            </p>
-            <p>
-                Mein Führungsstil basiert auf Transparenz, Kommunikation und Ergebnisorientierung. Ich höre zu, bevor ich entscheide. Aber wenn eine Entscheidung getroffen ist, handele ich konsequent.
-            </p>
 
             <div class="highlight-box">
-                <h3>Konzept: Die Modernisierungskraft</h3>
-                <p>
-                    Die AfLS versteht sich als Reformkraft für Los Santos. Wir sind nicht angetreten, um die Dinge einfach nur zu verwalten, sondern um echte Veränderungen zu bewirken.
-                </p>
-            </div>
-
-            <h3>Unsere drei Säulen</h3>
-            
-            <p><strong>1. Sicherheit als Fundament</strong></p>
-            <p>
-                Ohne Sicherheit gibt es keine echte Freiheit. Die AfLS setzt auf eine konsequente Sicherheitspolitik, die rechtschaffene Bürger schützt und Kriminalität bekämpft. Wir stehen fest an der Seite unserer Polizei und Justiz und geben ihnen die nötigen Mittel. Los Santos soll eine sichere Stadt werden, in der sich jeder Bürger zu jeder Zeit frei bewegen kann.
-            </p>
-
-            <p><strong>2. Wohlstand durch Leistung</strong></p>
-            <p>
-                Wir glauben an die Kraft des Unternehmertums und den Fleiß unserer Bürger. Die AfLS steht für eine Wirtschaftspolitik, die diejenigen unterstützt, die arbeiten, investieren und Verantwortung übernehmen. Wir senken Steuern, bauen Bürokratie ab und schaffen ein Umfeld für Wachstum.
-            </p>
-
-            <p><strong>3. Verwaltung im Dienst der Bürger</strong></p>
-            <p>
-                Zu lange haben Bürger unter ineffizienten Behörden gelitten. Die AfLS modernisiert und digitalisiert die Verwaltung. Unser Ziel: Die meisten Anträge sollen online und schnell bearbeitet werden können. Wir setzen auf Transparenz und Verantwortung.
-            </p>
-
-            <h3>Konkrete Maßnahmen</h3>
-            <ul>
-                <li><strong>Innere Sicherheit:</strong> Mehr Polizeipräsenz in Problemvierteln, moderne Sicherheitstechnik, konsequenter Kampf gegen organisierte Kriminalität</li>
-                <li><strong>Wirtschaft:</strong> Senkung der Gewerbesteuer, schnellere Genehmigungen, Förderung von Start-ups, Schaffung neuer Arbeitsplätze</li>
-                <li><strong>Infrastruktur:</strong> Sanierung aller Hauptverkehrsstraßen, Ausbau des Nahverkehrs, Modernisierung der Hafenanlage</li>
-                <li><strong>Verwaltung:</strong> Digitalisierung der Behördengänge, kürzere Bearbeitungszeiten, Bürger-App für direkten Kontakt</li>
-                <li><strong>Justiz:</strong> Schnellere Gerichtsverfahren, angemessene Strafen, bessere Bewährungshilfe, Stärkung der Opferrechte</li>
-            </ul>
-
-            <h3>Unser Team</h3>
-            <div class="team-grid">
-                <div class="team-member">
-                    <div class="team-member-icon">👤</div>
-                    <div class="team-member-name">Marvin Benko</div>
-                    <div class="team-member-role">Vize-Gouverneur</div>
-                </div>
-                <div class="team-member">
-                    <div class="team-member-icon">👤</div>
-                    <div class="team-member-name">Samir Kasalla</div>
-                    <div class="team-member-role">Leaderschaft</div>
-                </div>
-                <div class="team-member">
-                    <div class="team-member-icon">👤</div>
-                    <div class="team-member-name">Tomek Young</div>
-                    <div class="team-member-role">Leaderschaft</div>
-                </div>
-                <div class="team-member">
-                    <div class="team-member-icon">👤</div>
-                    <div class="team-member-name">Nico Kraftwerk</div>
-                    <div class="team-member-role">Teammitglied</div>
-                </div>
-                <div class="team-member">
-                    <div class="team-member-icon">👤</div>
-                    <div class="team-member-name">Ben Benko</div>
-                    <div class="team-member-role">Teammitglied</div>
-                </div>
-                <div class="team-member">
-                    <div class="team-member-icon">👤</div>
-                    <div class="team-member-name">Simon Benko</div>
-                    <div class="team-member-role">Teammitglied</div>
-                </div>
-            </div>
-
-            <h3>Rangsystem der AfLS-Regierung</h3>
-            <div class="rank-container">
-                <div class="rank-item top-rank">30. Gouverneur</div>
-                <div class="rank-item top-rank">29. Stellvertretender Gouverneur</div>
-                <div class="rank-item top-rank">28. Chefsekretär des Gouverneurs</div>
-                <div class="rank-item top-rank">27. Justizminister</div>
-                <div class="rank-item top-rank">26. Innenminister</div>
-                <div class="rank-item top-rank">25. Finanzminister</div>
-                <div class="rank-item">24. [USSS] Direktor des Secret Service</div>
-                <div class="rank-item">23. [USSS] Stellv. Direktor des Secret Service</div>
-                <div class="rank-item">22. Stellv. Justizminister</div>
-                <div class="rank-item">21. Stellv. Innenminister</div>
-                <div class="rank-item">20. Vorsitzender Richter</div>
-                <div class="rank-item">19. Generalstaatsanwalt</div>
-                <div class="rank-item">18. Richter</div>
-                <div class="rank-item">17. Staatsanwalt</div>
-                <div class="rank-item">16. Regierungsdirektor</div>
-                <div class="rank-item">15. [USSS] Abteilungsleiter</div>
-                <div class="rank-item">14. [USSS] Stellv. Abteilungsleiter</div>
-                <div class="rank-item">13. Regierungsbeamter</div>
-                <div class="rank-item">12. [USSS] HR-Spezialist</div>
-                <div class="rank-item">11. [USSS] Commander</div>
-                <div class="rank-item">10. [USSS] Captain</div>
-                <div class="rank-item">09. [USSS] Sergeant</div>
-                <div class="rank-item">08. [USSS] Lieutenant</div>
-                <div class="rank-item">07. [USSS] Inspector</div>
-                <div class="rank-item">06. Regierungsbeamter in Ausbildung</div>
-                <div class="rank-item">05. [USSS] Senior Agent</div>
-                <div class="rank-item">04. [USSS] Special Agent</div>
-                <div class="rank-item">03. [USSS] Agent</div>
-                <div class="rank-item">02. [USSS] Rekrut</div>
-                <div class="rank-item">01. Besucher</div>
-            </div>
-
-            <h3>Ideologie der AfLS</h3>
-            <p>
-                Die AfLS steht für eine progressive, reformorientierte und bürgernahe Politik. Wir kombinieren bewährte Werte wie Sicherheit und Ordnung mit modernen, innovativen Ansätzen in Wirtschaft und Verwaltung.
-            </p>
-
-            <div class="highlight-box">
-                <h3>Unsere Grundwerte:</h3>
-                <p><strong>Sicherheit:</strong> Die Sicherheit unserer Bürger ist nicht verhandelbar. Wir stehen für konsequente Kriminalitätsbekämpfung.</p>
-                <p><strong>Freiheit:</strong> Jeder Bürger soll die Freiheit haben, sein Leben nach eigenen Vorstellungen zu gestalten – solange er die Freiheit anderer respektiert.</p>
-                <p><strong>Gerechtigkeit:</strong> Gleiches Recht für alle. Keine Privilegien für Eliten. Keine Sonderbehandlung.</p>
-                <p><strong>Transparenz:</strong> Bürger haben das Recht zu wissen, was ihre Regierung tut. Wir legen unsere Entscheidungen offen.</p>
-                <p><strong>Effizienz:</strong> Schluss mit unnötiger Bürokratie. Schnelle Entscheidungen, praktische Lösungen, messbare Ergebnisse.</p>
+                <h3>Das FIB: Ein Pfeiler der Exzellenz, Vertrauenswürdigkeit und Rechtschaffenheit</h3>
+                <p>Danke für eure Zeit!</p>
+                <p style="margin-top: 15px; font-weight: 600;">Mit freundlichen Grüßen,<br>Vincenzo Young</p>
             </div>
         </section>
     </div>
 
     <!-- Footer -->
-    <footer id="kontakt">
-        <p style="font-size: 18px; font-weight: 600;">Bewerbungsportfolio - Vincenzo Young</p>
-        <p>Kontakt: Discord - dernoov_ | ID: 160115 | Visum: 43</p>
-        <p>Familie: Hells Angels | Verfügbarkeit: Immer</p>
-        <p style="margin-top: 20px; font-size: 14px; opacity: 0.7;">© 2024 Alle Rechte vorbehalten</p>
+    <footer>
+        <p style="font-size: 20px; font-weight: 600;">FBI Leadership Bewerbung</p>
+        <p>Vincenzo Young | ID: 160115 | Visum: 43</p>
+        <p>Discord: dernoov_ | Familie: Hells Angels</p>
+        <p style="margin-top: 20px; font-size: 14px; opacity: 0.7;">© 2024 Federal Investigation Bureau</p>
     </footer>
 
-    <!-- Scroll to Top Button -->
+    <!-- Scroll to Top -->
     <div class="scroll-top" id="scrollTop">
         <i class="fas fa-chevron-up"></i>
     </div>
 
     <script>
-        // Navigation Active State
+        // Navigation
         const navLinks = document.querySelectorAll('nav a');
         const sections = document.querySelectorAll('section');
 
@@ -855,8 +840,7 @@
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= (sectionTop - 200)) {
+                if (pageYOffset >= (sectionTop - 220)) {
                     current = section.getAttribute('id');
                 }
             });
@@ -870,7 +854,7 @@
 
             // Scroll to Top Button
             const scrollTop = document.getElementById('scrollTop');
-            if (window.pageYOffset > 300) {
+            if (window.pageYOffset > 350) {
                 scrollTop.classList.add('show');
             } else {
                 scrollTop.classList.remove('show');
@@ -889,7 +873,7 @@
             });
         });
 
-        // Scroll to Top Functionality
+        // Scroll to Top
         document.getElementById('scrollTop').addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
@@ -897,7 +881,7 @@
         // Animate on Scroll
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
+            rootMargin: '0px 0px -120px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
@@ -909,10 +893,10 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.content-section, .info-section, .info-card, .department-card, .team-member').forEach(el => {
+        document.querySelectorAll('.content-section, .info-section, .vice-section, .info-card, .department-card, .vice-card').forEach(el => {
             el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            el.style.transform = 'translateY(35px)';
+            el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
             observer.observe(el);
         });
     </script>
