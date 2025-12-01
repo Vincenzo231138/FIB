@@ -26,6 +26,8 @@
             --fbi-gold: #d4af37;
             --accent-silver: #c5c5c5;
             --danger-red: #dc2626;
+            --success-green: #10b981;
+            --purple: #a855f7;
         }
 
         body {
@@ -63,6 +65,49 @@
                 repeating-linear-gradient(0deg, transparent, transparent 80px, rgba(255,255,255,0.02) 80px, rgba(255,255,255,0.02) 81px);
             animation: backgroundShift 20s ease infinite;
         }
+
+        /* Floating particles animation */
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--fbi-blue-light);
+            border-radius: 50%;
+            opacity: 0;
+            animation: float 15s infinite;
+            box-shadow: 0 0 10px var(--fbi-blue-light);
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        .particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 25%; animation-delay: 2s; }
+        .particle:nth-child(3) { left: 40%; animation-delay: 4s; }
+        .particle:nth-child(4) { left: 55%; animation-delay: 6s; }
+        .particle:nth-child(5) { left: 70%; animation-delay: 8s; }
+        .particle:nth-child(6) { left: 85%; animation-delay: 10s; }
 
         @keyframes backgroundShift {
             0%, 100% { opacity: 0.3; }
@@ -252,6 +297,72 @@
             padding: 80px 40px;
         }
 
+        /* Stats Overview Section - NEU */
+        .stats-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--secondary-black) 0%, var(--dark-gray) 100%);
+            padding: 40px;
+            border-radius: 16px;
+            border: 2px solid var(--medium-gray);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(37,99,235,0.1) 0%, transparent 70%);
+            transition: transform 0.6s ease;
+        }
+
+        .stat-card:hover::before {
+            transform: rotate(45deg);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(37,99,235,0.3);
+            border-color: var(--fbi-blue-light);
+        }
+
+        .stat-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+            display: block;
+            background: linear-gradient(135deg, var(--fbi-blue-light) 0%, var(--fbi-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 4px 8px rgba(37,99,235,0.4));
+        }
+
+        .stat-value {
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--text-white);
+            margin-bottom: 10px;
+            text-shadow: 0 2px 10px rgba(37,99,235,0.5);
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: var(--text-gray);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
         /* Personal Info Section mit verbessertem Design */
         .info-section {
             background: linear-gradient(135deg, var(--secondary-black) 0%, var(--dark-gray) 100%);
@@ -335,6 +446,13 @@
             letter-spacing: 2px;
             margin-bottom: 12px;
             font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-label i {
+            color: var(--fbi-blue-light);
         }
 
         .info-value {
@@ -344,7 +462,235 @@
             letter-spacing: 0.5px;
         }
 
-        /* Vice Leaders Section */
+        /* Skills Section - NEU */
+        .skills-section {
+            background: linear-gradient(135deg, var(--dark-gray) 0%, var(--secondary-black) 100%);
+            border-radius: 20px;
+            padding: 60px;
+            margin-bottom: 60px;
+            border: 2px solid var(--medium-gray);
+            box-shadow: 0 16px 60px rgba(0,0,0,0.7);
+        }
+
+        .skills-section h2 {
+            font-size: 38px;
+            color: var(--text-white);
+            margin-bottom: 50px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            border-bottom: 4px solid var(--fbi-blue);
+            padding-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .skill-item {
+            margin-bottom: 30px;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .skill-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-white);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .skill-percent {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--fbi-gold);
+        }
+
+        .skill-bar {
+            width: 100%;
+            height: 12px;
+            background: rgba(0,0,0,0.5);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.4);
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--fbi-blue) 0%, var(--fbi-blue-light) 50%, var(--fbi-gold) 100%);
+            border-radius: 20px;
+            transition: width 2s ease;
+            width: 0;
+            position: relative;
+            box-shadow: 0 0 20px rgba(37,99,235,0.6);
+        }
+
+        .skill-progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Timeline Section - NEU */
+        .timeline-section {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            border-radius: 20px;
+            padding: 60px;
+            margin-bottom: 60px;
+            border: 2px solid var(--fbi-blue);
+            box-shadow: 0 16px 60px rgba(30,58,138,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .timeline-section h2 {
+            font-size: 42px;
+            color: var(--text-white);
+            margin-bottom: 60px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            border-bottom: 4px solid var(--fbi-gold);
+            padding-bottom: 25px;
+            font-weight: 800;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background: linear-gradient(180deg, var(--fbi-blue) 0%, var(--fbi-gold) 100%);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 3px;
+            box-shadow: 0 0 20px rgba(37,99,235,0.5);
+        }
+
+        .timeline-item {
+            padding: 10px 60px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .timeline-item.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            right: -15px;
+            background-color: var(--fbi-gold);
+            border: 5px solid var(--fbi-blue);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+            box-shadow: 0 0 20px rgba(212,175,55,0.7);
+        }
+
+        .timeline-item.left {
+            left: 0;
+        }
+
+        .timeline-item.right {
+            left: 50%;
+        }
+
+        .timeline-item.right::after {
+            left: -15px;
+        }
+
+        .timeline-content {
+            padding: 30px 40px;
+            background: linear-gradient(135deg, var(--dark-gray) 0%, var(--secondary-black) 100%);
+            position: relative;
+            border-radius: 12px;
+            border: 2px solid var(--medium-gray);
+            transition: all 0.4s ease;
+        }
+
+        .timeline-content:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(37,99,235,0.4);
+            border-color: var(--fbi-blue-light);
+        }
+
+        .timeline-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .timeline-date {
+            font-size: 14px;
+            color: var(--fbi-gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .timeline-title {
+            font-size: 24px;
+            color: var(--text-white);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .timeline-desc {
+            font-size: 16px;
+            color: var(--text-gray);
+            line-height: 1.8;
+        }
+
+        .timeline-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(37,99,235,0.2);
+            border: 1px solid var(--fbi-blue-light);
+            border-radius: 20px;
+            font-size: 12px;
+            color: var(--fbi-blue-light);
+            margin-top: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* Vice Leaders */
         .vice-section {
             background: linear-gradient(135deg, var(--fbi-blue) 0%, #0d3a6f 100%);
             border-radius: 20px;
@@ -488,7 +834,7 @@
             font-size: 24px;
         }
 
-        /* Story Section - NEU */
+        /* Story Section */
         .story-section {
             background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
             border-radius: 20px;
@@ -526,6 +872,17 @@
             z-index: 1;
         }
 
+        .story-section h3 {
+            font-size: 28px;
+            color: var(--text-light);
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 1;
+        }
+
         .story-section p {
             color: var(--text-light);
             line-height: 2.1;
@@ -545,9 +902,11 @@
             color: var(--text-white);
             font-size: 18px;
             box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+            position: relative;
+            z-index: 1;
         }
 
-        /* Highlight Boxes - verbessert */
+        /* Highlight Boxes */
         .highlight-box {
             background: linear-gradient(135deg, var(--dark-gray) 0%, var(--medium-gray) 100%);
             padding: 40px;
@@ -584,7 +943,7 @@
             line-height: 2;
         }
 
-        /* Department Cards - verbessert */
+        /* Department Cards */
         .department-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
@@ -645,7 +1004,7 @@
             letter-spacing: 1px;
         }
 
-        /* Rank System - verbessert */
+        /* Rank System */
         .rank-container {
             background: linear-gradient(135deg, var(--dark-gray) 0%, #0a0a0a 100%);
             padding: 40px;
@@ -692,7 +1051,89 @@
             box-shadow: 0 6px 20px rgba(212,175,55,0.3);
         }
 
-        /* Footer - verbessert */
+        /* Achievements Section - NEU */
+        .achievements-section {
+            background: linear-gradient(135deg, var(--secondary-black) 0%, var(--dark-gray) 100%);
+            border-radius: 20px;
+            padding: 60px;
+            margin-bottom: 60px;
+            border: 2px solid var(--fbi-gold);
+            box-shadow: 0 16px 60px rgba(212,175,55,0.2);
+        }
+
+        .achievements-section h2 {
+            font-size: 38px;
+            color: var(--text-white);
+            margin-bottom: 50px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            border-bottom: 4px solid var(--fbi-gold);
+            padding-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .achievement-card {
+            background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(30,58,138,0.1) 100%);
+            padding: 35px;
+            border-radius: 14px;
+            border: 2px solid var(--medium-gray);
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .achievement-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212,175,55,0.15) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .achievement-card:hover::before {
+            opacity: 1;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            border-color: var(--fbi-gold);
+            box-shadow: 0 15px 35px rgba(212,175,55,0.3);
+        }
+
+        .achievement-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+            display: block;
+            filter: drop-shadow(0 4px 12px rgba(212,175,55,0.5));
+        }
+
+        .achievement-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-white);
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .achievement-desc {
+            font-size: 15px;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        /* Footer */
         footer {
             background: linear-gradient(180deg, var(--primary-black) 0%, #000000 100%);
             padding: 50px 40px;
@@ -707,7 +1148,7 @@
             font-size: 16px;
         }
 
-        /* Scroll to Top - verbessert */
+        /* Scroll to Top */
         .scroll-top {
             position: fixed;
             bottom: 40px;
@@ -771,6 +1212,14 @@
                 padding: 40px 28px;
             }
 
+            .timeline-section {
+                padding: 40px 28px;
+            }
+
+            .skills-section {
+                padding: 40px 28px;
+            }
+
             nav ul {
                 flex-direction: column;
                 gap: 8px;
@@ -791,12 +1240,51 @@
             .vice-grid {
                 grid-template-columns: 1fr;
             }
+
+            .stats-overview {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item::after {
+                left: 15px;
+            }
+
+            .timeline-item.left::after,
+            .timeline-item.right::after {
+                left: 15px;
+            }
+
+            .timeline-item.right {
+                left: 0;
+            }
         }
     </style>
 </head>
 <body>
     <!-- FBI Hero Section -->
     <div class="fbi-hero">
+        <div class="particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
         <div class="fbi-logo-container">
             <div class="fbi-badge">
                 <div class="fbi-badge-inner">
@@ -813,10 +1301,14 @@
     <div class="nav-container">
         <nav>
             <ul>
-                <li><a href="#personal-info" class="active">Persönliche Daten</a></li>
-                <li><a href="#vorgeschichte">Meine Geschichte</a></li>
+                <li><a href="#stats" class="active">Statistiken</a></li>
+                <li><a href="#personal-info">Persönliche Daten</a></li>
+                <li><a href="#skills">Fähigkeiten</a></li>
+                <li><a href="#achievements">Erfolge</a></li>
+                <li><a href="#timeline">Karriere Timeline</a></li>
+                <li><a href="#vorgeschichte">Geschichte</a></li>
                 <li><a href="#motivation">Motivation</a></li>
-                <li><a href="#fuehrung">Führung & Erfahrung</a></li>
+                <li><a href="#fuehrung">Führung</a></li>
                 <li><a href="#konzept">Konzept</a></li>
                 <li><a href="#rangsystem">Rangsystem</a></li>
                 <li><a href="#verbesserungen">Verbesserungen</a></li>
@@ -825,41 +1317,291 @@
     </div>
 
     <div class="container">
+        <!-- Stats Overview - NEU -->
+        <section class="stats-overview" id="stats">
+            <div class="stat-card">
+                <span class="stat-icon">📅</span>
+                <div class="stat-value">2+</div>
+                <div class="stat-label">Jahre Erfahrung</div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-icon">🏅</span>
+                <div class="stat-value">4</div>
+                <div class="stat-label">Vize-Leader Positionen</div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-icon">⭐</span>
+                <div class="stat-value">43</div>
+                <div class="stat-label">Visum Level</div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-icon">🎯</span>
+                <div class="stat-value">100%</div>
+                <div class="stat-label">Verfügbarkeit</div>
+            </div>
+        </section>
+
         <!-- Personal Information -->
         <section class="info-section" id="personal-info">
             <h2><i class="fas fa-id-card"></i> Persönliche Informationen</h2>
             <div class="info-grid">
                 <div class="info-card">
-                    <div class="info-label">OOC Name</div>
+                    <div class="info-label"><i class="fas fa-user"></i> OOC Name</div>
                     <div class="info-value">Vincenzo</div>
                 </div>
                 <div class="info-card">
-                    <div class="info-label">OOC Alter</div>
+                    <div class="info-label"><i class="fas fa-birthday-cake"></i> OOC Alter</div>
                     <div class="info-value">18 Jahre</div>
                 </div>
                 <div class="info-card">
-                    <div class="info-label">Discord</div>
+                    <div class="info-label"><i class="fab fa-discord"></i> Discord</div>
                     <div class="info-value">dernoov_</div>
                 </div>
                 <div class="info-card">
-                    <div class="info-label">IC Name</div>
+                    <div class="info-label"><i class="fas fa-id-badge"></i> IC Name</div>
                     <div class="info-value">Vincenzo Young</div>
                 </div>
                 <div class="info-card">
-                    <div class="info-label">ID</div>
+                    <div class="info-label"><i class="fas fa-hashtag"></i> ID</div>
                     <div class="info-value">160115</div>
                 </div>
                 <div class="info-card">
-                    <div class="info-label">Visum</div>
+                    <div class="info-label"><i class="fas fa-passport"></i> Visum</div>
                     <div class="info-value">43</div>
                 </div>
                 <div class="info-card">
-                    <div class="info-label">Familie</div>
+                    <div class="info-label"><i class="fas fa-users"></i> Familie</div>
                     <div class="info-value">Hells Angels</div>
                 </div>
                 <div class="info-card">
-                    <div class="info-label">Verfügbarkeit</div>
+                    <div class="info-label"><i class="fas fa-clock"></i> Verfügbarkeit</div>
                     <div class="info-value">Immer</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label"><i class="fas fa-gamepad"></i> Spielstunden</div>
+                    <div class="info-value">2000+ Std</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label"><i class="fas fa-globe"></i> Sprachen</div>
+                    <div class="info-value">DE / EN</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label"><i class="fas fa-microphone"></i> Kommunikation</div>
+                    <div class="info-value">Sehr gut</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label"><i class="fas fa-star"></i> Besonderheit</div>
+                    <div class="info-value">Allrounder</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section - NEU -->
+        <section class="skills-section" id="skills">
+            <h2><i class="fas fa-chart-bar"></i> Meine Fähigkeiten</h2>
+            <div class="skills-grid">
+                <div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Leadership</span>
+                            <span class="skill-percent">95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-percent="95"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Kommunikation</span>
+                            <span class="skill-percent">98%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-percent="98"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Teamwork</span>
+                            <span class="skill-percent">96%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-percent="96"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Ermittlungsarbeit</span>
+                            <span class="skill-percent">92%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-percent="92"></div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Taktisches Denken</span>
+                            <span class="skill-percent">94%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-percent="94"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Organisation</span>
+                            <span class="skill-percent">97%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-percent="97"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Verhandlung</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-percent="90"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Konfliktlösung</span>
+                            <span class="skill-percent">93%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-percent="93"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements Section - NEU -->
+        <section class="achievements-section" id="achievements">
+            <h2><i class="fas fa-trophy"></i> Meine Erfolge</h2>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <span class="achievement-icon">🎖️</span>
+                    <div class="achievement-title">4x Vize-Leader</div>
+                    <div class="achievement-desc">Erfolgreich als Deputy bei Grove Street, Vagos, NG und SAHP</div>
+                </div>
+                <div class="achievement-card">
+                    <span class="achievement-icon">🔍</span>
+                    <div class="achievement-title">Korruptionsjäger</div>
+                    <div class="achievement-desc">Aufdeckung und Bekämpfung interner Korruptionsfälle</div>
+                </div>
+                <div class="achievement-card">
+                    <span class="achievement-icon">🎯</span>
+                    <div class="achievement-title">100+ Erfolgreiche Einsätze</div>
+                    <div class="achievement-desc">Koordination und Durchführung komplexer Operationen</div>
+                </div>
+                <div class="achievement-card">
+                    <span class="achievement-icon">👥</span>
+                    <div class="achievement-title">50+ Rekruten Ausgebildet</div>
+                    <div class="achievement-desc">Training und Mentoring neuer Mitglieder</div>
+                </div>
+                <div class="achievement-card">
+                    <span class="achievement-icon">🤝</span>
+                    <div class="achievement-title">Inter-Org Koordinator</div>
+                    <div class="achievement-desc">Erfolgreiche Zusammenarbeit zwischen allen staatlichen Orgs</div>
+                </div>
+                <div class="achievement-card">
+                    <span class="achievement-icon">📊</span>
+                    <div class="achievement-title">SOP Entwickler</div>
+                    <div class="achievement-desc">Erstellung und Implementation effizienter Arbeitsabläufe</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline Section - NEU -->
+        <section class="timeline-section" id="timeline">
+            <h2><i class="fas fa-history"></i> Meine Karriere Timeline</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <span class="timeline-icon">🌱</span>
+                        <div class="timeline-date">Vor über 2 Jahren</div>
+                        <div class="timeline-title">Der Anfang - 18th Street Gang</div>
+                        <div class="timeline-desc">
+                            Erste Schritte auf der Insel. Lernte die Grundlagen des Straßenlebens und verstand, wie illegale Organisationen funktionieren.
+                        </div>
+                        <span class="timeline-badge">Start</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <span class="timeline-icon">💚</span>
+                        <div class="timeline-date">Phase 1</div>
+                        <div class="timeline-title">Grove Street - Vize-Leader</div>
+                        <div class="timeline-desc">
+                            Erste Führungserfahrung als Deputy bei Grove Street. Aufbau von Team-Strukturen und Koordination von Gang-Aktivitäten. Lernte, wie man ein Team motiviert und zusammenhält.
+                        </div>
+                        <span class="timeline-badge">Vize-Leader #1</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <span class="timeline-icon">💛</span>
+                        <div class="timeline-date">Phase 2</div>
+                        <div class="timeline-title">Vagos - Vize-Leader</div>
+                        <div class="timeline-desc">
+                            Erweiterte meine Führungskompetenz als Deputy bei Vagos. Entwickelte strategisches Denken und verbesserte meine Fähigkeit, in Konfliktsituationen zu vermitteln.
+                        </div>
+                        <span class="timeline-badge">Vize-Leader #2</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <span class="timeline-icon">🪖</span>
+                        <div class="timeline-date">Der Wendepunkt</div>
+                        <div class="timeline-title">National Guard - Vize-Leader</div>
+                        <div class="timeline-desc">
+                            Wechsel zur staatlichen Seite. Als Deputy bei der NG revolutionierte ich die Kommunikationsstrukturen und führte professionelle Einsatzprotokolle ein. Erste große Erfolge im staatlichen Bereich.
+                        </div>
+                        <span class="timeline-badge">Vize-Leader #3</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <span class="timeline-icon">💜</span>
+                        <div class="timeline-date">Erfahrungserweiterung</div>
+                        <div class="timeline-title">Ballas & Bloods</div>
+                        <div class="timeline-desc">
+                            Strategischer Einblick in verschiedene Gang-Strukturen, um die kriminelle Seite noch besser zu verstehen. Sammelte wertvolles Wissen für zukünftige Ermittlungsarbeit.
+                        </div>
+                        <span class="timeline-badge">Perspektive</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <span class="timeline-icon">🚔</span>
+                        <div class="timeline-date">Aktuell</div>
+                        <div class="timeline-title">SAHP - Vize-Leader</div>
+                        <div class="timeline-desc">
+                            Als Deputy beim SAHP konsolidierte ich alle meine Erfahrungen. Erfolgreiche Korruptionsbekämpfung, professionelle Ausbildung neuer Recruits und enge Zusammenarbeit mit allen staatlichen Organisationen.
+                        </div>
+                        <span class="timeline-badge">Vize-Leader #4</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <span class="timeline-icon">🎯</span>
+                        <div class="timeline-date">Nächster Schritt</div>
+                        <div class="timeline-title">FBI - Leader Position</div>
+                        <div class="timeline-desc">
+                            Bereit, alle Erfahrungen und Fähigkeiten einzusetzen, um das FBI zur Elite-Organisation zu machen. Vision: Qualität, Professionalität und Integrität.
+                        </div>
+                        <span class="timeline-badge">Zukunft</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -881,7 +1623,7 @@
             </div>
         </section>
 
-        <!-- Vorgeschichte - NEU -->
+        <!-- Vorgeschichte -->
         <section class="story-section" id="vorgeschichte">
             <h2><i class="fas fa-book"></i> Meine Geschichte auf der Insel</h2>
             
@@ -898,9 +1640,39 @@
                 "Manchmal braucht man einen Tiefpunkt, um zu erkennen, dass man für mehr bestimmt ist."
             </div>
 
+            <h3>Grove Street - Meine erste Führungsrolle</h3>
+            <p>
+                Der Wechsel zu Grove Street war mein erster Schritt nach oben. Hier bekam ich die Chance, als Vize-Leader zu arbeiten. Es war eine komplett neue Erfahrung – plötzlich war ich nicht mehr nur ein Mitglied, sondern jemand, der Verantwortung trug. Ich musste Entscheidungen treffen, die das gesamte Team betrafen.
+            </p>
+
+            <p>
+                Bei Grove lernte ich die Grundlagen der Führung: Wie man ein Team organisiert, wie man Konflikte löst, wie man Loyalität aufbaut, ohne dabei die Kontrolle zu verlieren. Es war nicht immer einfach. Es gab interne Streitigkeiten, Machtkämpfe und Momente, in denen ich dachte, dass ich es nicht schaffe. Aber ich biss mich durch.
+            </p>
+
+            <p>
+                Eine Sache, die mir bei Grove besonders in Erinnerung geblieben ist: Wir hatten einen Member, der ständig gegen Regeln verstoßen hat. Die anderen wollten ihn sofort rauswerfen. Ich habe stattdessen mit ihm geredet, herausgefunden, was sein Problem war, und ihm eine zweite Chance gegeben. Heute ist er einer der loyalsten Members. Das hat mir gezeigt: Manchmal brauchen Leute nur jemanden, der ihnen zuhört.
+            </p>
+
+            <h3>Vagos - Erweiterte Führungserfahrung</h3>
+            <p>
+                Nach Grove Street kam Vagos. Hier wurde es noch intensiver. Als Vize-Leader bei Vagos musste ich nicht nur mein Team managen, sondern auch in größeren Konflikten zwischen verschiedenen Gangs vermitteln. Vagos war damals in mehrere territoriale Disputes verwickelt, und ich war oft derjenige, der versuchen musste, Eskalationen zu verhindern.
+            </p>
+
+            <p>
+                Bei Vagos habe ich gelernt, wie wichtig strategisches Denken ist. Es reicht nicht, nur stark zu sein – man muss auch klug sein. Ich habe Allianzen aufgebaut, Verhandlungen geführt und gelernt, wann man kämpft und wann man zurückweicht. Diese Fähigkeit, das große Ganze zu sehen, hat mich später bei allen staatlichen Organisationen extrem geholfen.
+            </p>
+
+            <p>
+                Eines der größten Learning Experiences bei Vagos war ein gescheiterter Überfall auf eine rival Gang. Wir hatten nicht genug geplant, waren unkoordiniert, und am Ende haben wir drei unserer besten Leute verloren. Das war ein Wake-Up Call für mich: Ohne Planung und Kommunikation kannst du das beste Team der Welt haben – es wird trotzdem scheitern.
+            </p>
+
             <h3>Der Wendepunkt - National Guard</h3>
             <p>
                 Der Wechsel zur NG war mein persönlicher Neuanfang. Ich wollte beweisen – vor allem mir selbst – dass ich auch auf der richtigen Seite des Gesetzes etwas erreichen kann. Die ersten Wochen waren hart. Verdammt hart. Ich wurde kritisch beäugt, schließlich kam ich von der Straße. Aber ich biss mich durch, machte jeden Dienst, jede Übung mit und versuchte zu zeigen, dass meine Vergangenheit nicht definiert, wer ich bin.
+            </p>
+
+            <p>
+                Als ich zum Vize-Leader bei der NG ernannt wurde, war das einer der stolzesten Momente meines Lebens. Endlich konnte ich meine Gang-Erfahrung in etwas Positives umwandeln. Ich wusste, wie Kriminelle denken, wie sie agieren – und das machte mich zu einem verdammt guten Taktiker.
             </p>
 
             <p>
@@ -927,7 +1699,7 @@
 
             <h3>Warum jetzt das FBI?</h3>
             <p>
-                Nach zwei Jahren, unzähligen Einsätzen, zwei Vize-Leader-Positionen und einer Reise durch fast alle Bereiche dieser Insel bin ich bereit für den nächsten Schritt. Das FBI ist nicht einfach nur eine weitere staatliche Org für mich – es ist der Ort, wo ich alles, was ich gelernt habe, wirklich nutzen kann.
+                Nach zwei Jahren, unzähligen Einsätzen, vier Vize-Leader-Positionen (Grove Street, Vagos, NG und SAHP) und einer Reise durch fast alle Bereiche dieser Insel bin ich bereit für den nächsten Schritt. Das FBI ist nicht einfach nur eine weitere staatliche Org für mich – es ist der Ort, wo ich alles, was ich gelernt habe, wirklich nutzen kann.
             </p>
 
             <p>
@@ -959,7 +1731,7 @@
             </div>
 
             <p>
-                Nach zwei Vize-Leader-Positionen ist es jetzt Zeit für den nächsten Schritt. Ich habe lang genug anderen geholfen, ihre Visionen umzusetzen. Jetzt will ich meine eigene Vision verwirklichen. Und ich bin bereit, die Verantwortung dafür zu übernehmen – mit allem, was dazugehört.
+                Nach vier Vize-Leader-Positionen (Grove Street, Vagos, NG und SAHP) ist es jetzt Zeit für den nächsten Schritt. Ich habe lang genug anderen geholfen, ihre Visionen umzusetzen. Jetzt will ich meine eigene Vision verwirklichen. Und ich bin bereit, die Verantwortung dafür zu übernehmen – mit allem, was dazugehört.
             </p>
         </section>
 
@@ -979,7 +1751,33 @@
             <h3>Konkrete Erfahrungen aus meinen Vize-Positionen</h3>
             
             <div class="highlight-box">
-                <h3>Bei der National Guard</h3>
+                <h3>Bei Grove Street (Vize #1)</h3>
+                <p>
+                    <strong>Situation:</strong> Die Gang war völlig desorganisiert, jeder machte sein eigenes Ding.
+                </p>
+                <p>
+                    <strong>Meine Lösung:</strong> Einführung klarer Hierarchien und Verantwortlichkeiten. Regelmäßige Meetings und Kommunikationsregeln.
+                </p>
+                <p>
+                    <strong>Ergebnis:</strong> Innerhalb von 2 Monaten hatten wir eine funktionierende Struktur und bessere Zusammenarbeit.
+                </p>
+            </div>
+
+            <div class="highlight-box">
+                <h3>Bei Vagos (Vize #2)</h3>
+                <p>
+                    <strong>Situation:</strong> Ständige Konflikte mit rivalisierenden Gangs, keine klare Strategie.
+                </p>
+                <p>
+                    <strong>Meine Herangehensweise:</strong> Entwicklung strategischer Pläne für Territory-Control und Konfliktmanagement. Aufbau von Allianzen wo sinnvoll.
+                </p>
+                <p>
+                    <strong>Ergebnis:</strong> Reduzierung unnötiger Konflikte um 40%, mehr Fokus auf profitable Aktivitäten.
+                </p>
+            </div>
+
+            <div class="highlight-box">
+                <h3>Bei der National Guard (Vize #3)</h3>
                 <p>
                     <strong>Situation:</strong> Wir hatten massive Probleme mit unorganisierten Einsätzen. Jeder hat gemacht, was er wollte, es gab keine klare Kommunikation.
                 </p>
@@ -992,7 +1790,7 @@
             </div>
 
             <div class="highlight-box">
-                <h3>Beim SAHP</h3>
+                <h3>Beim SAHP (Vize #4)</h3>
                 <p>
                     <strong>Situation:</strong> Wir hatten einen internen Korruptionsfall – drei Officers haben Drogen aus Beschlagnahmungen verkauft.
                 </p>
@@ -1006,7 +1804,7 @@
 
             <h3>Was ich gelernt habe</h3>
             <p>
-                Durch meine Zeit bei verschiedenen Organisationen habe ich gelernt, was funktioniert und was nicht. Ich habe gesehen, wie gute Leader ihre Teams motivieren, aber auch wie schlechte Leader ihre Orgas ruinieren. Ich habe Fehler gemacht – ja, definitiv. Aber ich habe daraus gelernt.
+                Durch meine Zeit bei verschiedenen Organisationen – sowohl illegal als auch legal – habe ich gelernt, was funktioniert und was nicht. Ich habe gesehen, wie gute Leader ihre Teams motivieren, aber auch wie schlechte Leader ihre Orgas ruinieren. Ich habe Fehler gemacht – ja, definitiv. Aber ich habe daraus gelernt.
             </p>
 
             <p>
@@ -1054,7 +1852,7 @@
 
             <h4>3. Gang- und Familienermittlungen</h4>
             <p>
-                Ich kenne die Gang-Strukturen von innen. Ich weiß, wie sie arbeiten, wo ihre Schwachstellen sind. Das FBI wird langfristige verdeckte Ermittlungen durchführen, um die großen Organisationen von innen zu Fall zu bringen. Nicht nur schnelle Verhaftungen – nachhaltige Zerschlagung.
+                Ich kenne die Gang-Strukturen von innen (Grove Street, Vagos, Ballas, Bloods). Ich weiß, wie sie arbeiten, wo ihre Schwachstellen sind. Das FBI wird langfristige verdeckte Ermittlungen durchführen, um die großen Organisationen von innen zu Fall zu bringen. Nicht nur schnelle Verhaftungen – nachhaltige Zerschlagung.
             </p>
 
             <h3>Die Abteilungen im Detail</h3>
@@ -1307,12 +2105,45 @@
         }, observerOptions);
 
         // Elemente für Animation vorbereiten
-        document.querySelectorAll('.content-section, .info-section, .vice-section, .story-section, .info-card, .department-card, .vice-card, .highlight-box').forEach(el => {
+        document.querySelectorAll('.content-section, .info-section, .vice-section, .story-section, .timeline-section, .skills-section, .achievements-section, .info-card, .department-card, .vice-card, .highlight-box, .stat-card, .achievement-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(40px)';
             el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
             observer.observe(el);
         });
+
+        // Timeline Animation
+        const timelineObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            timelineObserver.observe(item);
+        });
+
+        // Skills Animation
+        const skillsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progressBars = entry.target.querySelectorAll('.skill-progress');
+                    progressBars.forEach(bar => {
+                        const percent = bar.getAttribute('data-percent');
+                        setTimeout(() => {
+                            bar.style.width = percent + '%';
+                        }, 200);
+                    });
+                }
+            });
+        }, { threshold: 0.3 });
+
+        const skillsSection = document.querySelector('.skills-section');
+        if (skillsSection) {
+            skillsObserver.observe(skillsSection);
+        }
 
         // Parallax Effect für Hero
         window.addEventListener('scroll', () => {
