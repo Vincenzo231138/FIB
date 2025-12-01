@@ -13,38 +13,40 @@
         }
 
         :root {
-            --primary-black: #121212;
-            --secondary-black: #1e1e1e;
-            --dark-gray: #2a2a2a;
-            --medium-gray: #3d3d3d;
-            --light-gray: #505050;
+            --primary-black: #0a0a0a;
+            --secondary-black: #151515;
+            --dark-gray: #1f1f1f;
+            --medium-gray: #2d2d2d;
+            --light-gray: #424242;
             --text-white: #ffffff;
-            --text-light: #e0e0e0;
-            --text-gray: #b0b0b0;
-            --fbi-blue: #1e3a8a;
+            --text-light: #e8e8e8;
+            --text-gray: #a8a8a8;
+            --fbi-blue: #1a4d8f;
             --fbi-blue-light: #2563eb;
-            --accent-silver: #c0c0c0;
+            --fbi-gold: #d4af37;
+            --accent-silver: #c5c5c5;
+            --danger-red: #dc2626;
         }
 
         body {
-            font-family: 'Segoe UI', 'Arial', sans-serif;
-            background: linear-gradient(135deg, var(--primary-black) 0%, var(--secondary-black) 100%);
+            font-family: 'Inter', 'Segoe UI', 'Arial', sans-serif;
+            background: var(--primary-black);
             color: var(--text-white);
-            line-height: 1.6;
+            line-height: 1.7;
             overflow-x: hidden;
         }
 
-        /* FBI Hero Section */
+        /* FBI Hero Section mit animiertem Hintergrund */
         .fbi-hero {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 50%, #2a2a2a 100%);
+            background: linear-gradient(180deg, #000000 0%, #0d1117 50%, #1a1a1a 100%);
             position: relative;
             overflow: hidden;
-            border-bottom: 3px solid var(--medium-gray);
+            border-bottom: 4px solid var(--fbi-blue);
         }
 
         .fbi-hero::before {
@@ -54,99 +56,115 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: 
-                repeating-linear-gradient(
-                    90deg,
-                    transparent,
-                    transparent 60px,
-                    rgba(255,255,255,0.03) 60px,
-                    rgba(255,255,255,0.03) 61px
-                ),
-                repeating-linear-gradient(
-                    0deg,
-                    transparent,
-                    transparent 60px,
-                    rgba(255,255,255,0.03) 60px,
-                    rgba(255,255,255,0.03) 61px
-                );
-            opacity: 0.4;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(30, 58, 138, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+                repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(255,255,255,0.02) 80px, rgba(255,255,255,0.02) 81px),
+                repeating-linear-gradient(0deg, transparent, transparent 80px, rgba(255,255,255,0.02) 80px, rgba(255,255,255,0.02) 81px);
+            animation: backgroundShift 20s ease infinite;
+        }
+
+        @keyframes backgroundShift {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
         }
 
         .fbi-logo-container {
             position: relative;
             z-index: 2;
             text-align: center;
-            animation: fadeInDown 1.5s ease;
+            animation: fadeInDown 1.2s ease;
         }
 
         .fbi-badge {
-            width: 220px;
-            height: 220px;
-            margin: 0 auto 40px;
-            background: radial-gradient(circle, var(--secondary-black) 0%, var(--primary-black) 100%);
+            width: 240px;
+            height: 240px;
+            margin: 0 auto 50px;
+            background: radial-gradient(circle, #1a1a1a 0%, #000000 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 6px solid var(--medium-gray);
+            border: 8px solid var(--medium-gray);
             box-shadow: 
-                0 0 40px rgba(30,58,138,0.6),
-                inset 0 0 30px rgba(30,58,138,0.3);
+                0 0 60px rgba(30,58,138,0.7),
+                0 0 100px rgba(37,99,235,0.4),
+                inset 0 0 50px rgba(30,58,138,0.3);
             position: relative;
         }
 
         .fbi-badge::before {
             content: '';
             position: absolute;
-            width: 200px;
-            height: 200px;
-            border: 3px solid var(--fbi-blue-light);
+            width: 210px;
+            height: 210px;
+            border: 4px solid var(--fbi-blue-light);
             border-radius: 50%;
-            animation: pulse 3s infinite;
+            animation: pulse 2.5s infinite;
+        }
+
+        .fbi-badge::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(45deg, transparent 30%, rgba(37,99,235,0.1) 50%, transparent 70%);
+            animation: rotate 8s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         .fbi-badge-inner {
             text-align: center;
+            z-index: 1;
         }
 
         .fbi-text {
-            font-size: 80px;
+            font-size: 90px;
             font-weight: 900;
             color: var(--text-white);
             text-shadow: 
-                0 0 20px rgba(37,99,235,0.8),
-                3px 3px 6px rgba(0,0,0,0.9);
-            letter-spacing: 10px;
-            margin-bottom: 10px;
+                0 0 30px rgba(37,99,235,0.9),
+                0 0 60px rgba(37,99,235,0.6),
+                4px 4px 8px rgba(0,0,0,0.9);
+            letter-spacing: 12px;
+            margin-bottom: 8px;
         }
 
         .fbi-subtitle {
-            font-size: 15px;
-            color: var(--accent-silver);
-            letter-spacing: 4px;
+            font-size: 13px;
+            color: var(--fbi-gold);
+            letter-spacing: 5px;
             text-transform: uppercase;
-            font-weight: 600;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
         }
 
         .hero-title {
-            font-size: 52px;
-            font-weight: 700;
+            font-size: 58px;
+            font-weight: 800;
             color: var(--text-white);
-            margin: 50px 0 25px;
-            text-shadow: 3px 3px 10px rgba(0,0,0,0.8);
+            margin: 60px 0 30px;
+            text-shadow: 4px 4px 12px rgba(0,0,0,0.9);
+            letter-spacing: 2px;
         }
 
         .hero-subtitle {
-            font-size: 22px;
+            font-size: 24px;
             color: var(--text-light);
-            margin-bottom: 60px;
-            font-weight: 300;
+            margin-bottom: 70px;
+            font-weight: 400;
+            letter-spacing: 1px;
         }
 
         @keyframes fadeInDown {
             from {
                 opacity: 0;
-                transform: translateY(-60px);
+                transform: translateY(-80px);
             }
             to {
                 opacity: 1;
@@ -157,11 +175,11 @@
         @keyframes pulse {
             0%, 100% {
                 transform: scale(1);
-                opacity: 0.5;
+                opacity: 0.4;
             }
             50% {
-                transform: scale(1.08);
-                opacity: 0.9;
+                transform: scale(1.1);
+                opacity: 0.8;
             }
         }
 
@@ -169,158 +187,282 @@
         .nav-container {
             position: sticky;
             top: 0;
-            background: rgba(18, 18, 18, 0.97);
-            backdrop-filter: blur(12px);
-            border-bottom: 2px solid var(--medium-gray);
+            background: rgba(10, 10, 10, 0.98);
+            backdrop-filter: blur(16px);
+            border-bottom: 3px solid var(--fbi-blue);
             z-index: 1000;
-            box-shadow: 0 4px 25px rgba(0,0,0,0.6);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.8);
         }
 
         nav {
-            max-width: 1300px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 22px 35px;
+            padding: 24px 40px;
         }
 
         nav ul {
             list-style: none;
             display: flex;
             justify-content: center;
-            gap: 35px;
+            gap: 8px;
             flex-wrap: wrap;
         }
 
         nav a {
             color: var(--text-gray);
             text-decoration: none;
-            font-size: 17px;
-            font-weight: 500;
-            padding: 12px 25px;
-            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 14px 28px;
+            border-radius: 8px;
             transition: all 0.3s ease;
             position: relative;
+            letter-spacing: 0.5px;
         }
 
-        nav a::after {
+        nav a::before {
             content: '';
             position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
             bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: var(--fbi-blue-light);
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--fbi-blue) 0%, var(--fbi-blue-light) 100%);
+            opacity: 0;
+            border-radius: 8px;
+            transition: opacity 0.3s ease;
+            z-index: -1;
         }
 
         nav a:hover,
         nav a.active {
             color: var(--text-white);
-            background: var(--dark-gray);
+            transform: translateY(-2px);
         }
 
-        nav a:hover::after,
-        nav a.active::after {
-            width: 80%;
+        nav a:hover::before,
+        nav a.active::before {
+            opacity: 1;
         }
 
         /* Main Container */
         .container {
-            max-width: 1300px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 70px 35px;
+            padding: 80px 40px;
         }
 
-        /* Personal Info Section */
+        /* Personal Info Section mit verbessertem Design */
         .info-section {
             background: linear-gradient(135deg, var(--secondary-black) 0%, var(--dark-gray) 100%);
-            border-radius: 16px;
-            padding: 55px;
-            margin-bottom: 55px;
+            border-radius: 20px;
+            padding: 60px;
+            margin-bottom: 60px;
             border: 2px solid var(--medium-gray);
-            box-shadow: 0 12px 45px rgba(0,0,0,0.6);
+            box-shadow: 0 16px 60px rgba(0,0,0,0.7);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(30,58,138,0.15) 0%, transparent 70%);
+            pointer-events: none;
         }
 
         .info-section h2 {
-            font-size: 38px;
-            margin-bottom: 45px;
+            font-size: 42px;
+            margin-bottom: 50px;
             color: var(--text-white);
             text-align: center;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            border-bottom: 3px solid var(--fbi-blue);
-            padding-bottom: 20px;
+            letter-spacing: 4px;
+            border-bottom: 4px solid var(--fbi-blue);
+            padding-bottom: 25px;
+            font-weight: 800;
         }
 
         .info-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 28px;
-            margin-top: 35px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+            position: relative;
+            z-index: 1;
         }
 
         .info-card {
-            background: rgba(0,0,0,0.5);
-            padding: 28px;
-            border-radius: 12px;
-            border-left: 5px solid var(--fbi-blue-light);
-            transition: all 0.3s ease;
+            background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 100%);
+            padding: 32px;
+            border-radius: 14px;
+            border-left: 6px solid var(--fbi-blue-light);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(37,99,235,0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .info-card:hover::before {
+            left: 100%;
         }
 
         .info-card:hover {
-            transform: translateX(12px);
-            background: rgba(0,0,0,0.7);
-            border-left-color: var(--accent-silver);
-            box-shadow: 0 6px 20px rgba(37,99,235,0.3);
+            transform: translateX(15px) translateY(-5px);
+            background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(30,58,138,0.2) 100%);
+            border-left-color: var(--fbi-gold);
+            box-shadow: 0 12px 30px rgba(37,99,235,0.4);
         }
 
         .info-label {
-            font-size: 14px;
+            font-size: 13px;
             color: var(--text-gray);
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            font-weight: 700;
         }
 
         .info-value {
-            font-size: 24px;
+            font-size: 26px;
             color: var(--text-white);
-            font-weight: 600;
+            font-weight: 700;
+            letter-spacing: 0.5px;
         }
 
-        /* Content Section */
+        /* Vice Leaders Section */
+        .vice-section {
+            background: linear-gradient(135deg, var(--fbi-blue) 0%, #0d3a6f 100%);
+            border-radius: 20px;
+            padding: 60px;
+            margin-bottom: 60px;
+            box-shadow: 0 16px 60px rgba(30,58,138,0.5);
+            border: 2px solid var(--fbi-blue-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vice-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+            animation: rotate 30s linear infinite;
+        }
+
+        .vice-section h2 {
+            font-size: 40px;
+            color: var(--text-white);
+            text-align: center;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 800;
+            position: relative;
+            z-index: 1;
+        }
+
+        .vice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .vice-card {
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(12px);
+            padding: 45px;
+            border-radius: 14px;
+            text-align: center;
+            border: 3px solid rgba(255,255,255,0.2);
+            transition: all 0.4s ease;
+        }
+
+        .vice-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            background: rgba(0,0,0,0.6);
+            border-color: var(--fbi-gold);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.6);
+        }
+
+        .vice-icon {
+            font-size: 70px;
+            margin-bottom: 25px;
+            display: block;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.6));
+        }
+
+        .vice-name {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--text-white);
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        .vice-role {
+            font-size: 15px;
+            color: var(--fbi-gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 700;
+        }
+
+        /* Content Section mit verbesserter Lesbarkeit */
         .content-section {
-            background: var(--secondary-black);
-            border-radius: 16px;
-            padding: 55px;
-            margin-bottom: 55px;
+            background: linear-gradient(135deg, var(--secondary-black) 0%, var(--dark-gray) 100%);
+            border-radius: 20px;
+            padding: 60px;
+            margin-bottom: 60px;
             border: 2px solid var(--medium-gray);
-            box-shadow: 0 12px 45px rgba(0,0,0,0.6);
+            box-shadow: 0 16px 60px rgba(0,0,0,0.7);
         }
 
         .content-section h2 {
-            font-size: 34px;
+            font-size: 38px;
             color: var(--text-white);
-            margin-bottom: 35px;
-            padding-bottom: 18px;
-            border-bottom: 3px solid var(--fbi-blue);
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 4px solid var(--fbi-blue);
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
+            font-weight: 800;
         }
 
         .content-section h3 {
-            font-size: 26px;
+            font-size: 28px;
             color: var(--text-light);
-            margin-top: 35px;
-            margin-bottom: 18px;
-            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
         }
 
         .content-section p {
             color: var(--text-gray);
-            line-height: 1.9;
-            margin-bottom: 22px;
+            line-height: 2;
+            margin-bottom: 24px;
             font-size: 17px;
+            letter-spacing: 0.3px;
         }
 
         .content-section ul {
@@ -330,10 +472,11 @@
 
         .content-section li {
             color: var(--text-gray);
-            margin-bottom: 18px;
-            padding-left: 35px;
+            margin-bottom: 20px;
+            padding-left: 40px;
             position: relative;
-            line-height: 1.8;
+            line-height: 1.9;
+            font-size: 17px;
         }
 
         .content-section li::before {
@@ -342,198 +485,248 @@
             left: 0;
             color: var(--fbi-blue-light);
             font-weight: bold;
-            font-size: 20px;
+            font-size: 24px;
         }
 
-        /* Highlight Boxes */
+        /* Story Section - NEU */
+        .story-section {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            border-radius: 20px;
+            padding: 60px;
+            margin-bottom: 60px;
+            border: 2px solid var(--fbi-blue);
+            box-shadow: 0 16px 60px rgba(30,58,138,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .story-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(30,58,138,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(37,99,235,0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .story-section h2 {
+            font-size: 38px;
+            color: var(--text-white);
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 4px solid var(--fbi-gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 800;
+            position: relative;
+            z-index: 1;
+        }
+
+        .story-section p {
+            color: var(--text-light);
+            line-height: 2.1;
+            margin-bottom: 26px;
+            font-size: 17px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .story-quote {
+            background: rgba(30,58,138,0.2);
+            border-left: 6px solid var(--fbi-gold);
+            padding: 30px 40px;
+            margin: 35px 0;
+            border-radius: 8px;
+            font-style: italic;
+            color: var(--text-white);
+            font-size: 18px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+        }
+
+        /* Highlight Boxes - verbessert */
         .highlight-box {
             background: linear-gradient(135deg, var(--dark-gray) 0%, var(--medium-gray) 100%);
-            padding: 35px;
-            border-radius: 12px;
-            border-left: 6px solid var(--fbi-blue-light);
-            margin: 35px 0;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+            padding: 40px;
+            border-radius: 14px;
+            border-left: 8px solid var(--fbi-blue-light);
+            margin: 40px 0;
+            box-shadow: 0 8px 28px rgba(0,0,0,0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(37,99,235,0.15) 0%, transparent 70%);
+            pointer-events: none;
         }
 
         .highlight-box h3 {
             color: var(--text-white);
             margin-top: 0;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
+            font-size: 24px;
+            font-weight: 700;
         }
 
         .highlight-box p {
             color: var(--text-light);
-            margin-bottom: 12px;
+            margin-bottom: 14px;
+            line-height: 2;
         }
 
-        /* Vice Leaders Section */
-        .vice-section {
-            background: linear-gradient(135deg, var(--fbi-blue) 0%, var(--fbi-blue-light) 100%);
-            border-radius: 16px;
-            padding: 50px;
-            margin-bottom: 55px;
-            box-shadow: 0 12px 45px rgba(30,58,138,0.4);
-            border: 2px solid var(--fbi-blue-light);
-        }
-
-        .vice-section h2 {
-            font-size: 36px;
-            color: var(--text-white);
-            text-align: center;
-            margin-bottom: 40px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .vice-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .vice-card {
-            background: rgba(0,0,0,0.3);
-            backdrop-filter: blur(10px);
-            padding: 40px;
-            border-radius: 12px;
-            text-align: center;
-            border: 2px solid rgba(255,255,255,0.2);
-            transition: all 0.3s ease;
-        }
-
-        .vice-card:hover {
-            transform: translateY(-8px);
-            background: rgba(0,0,0,0.5);
-            border-color: var(--accent-silver);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.5);
-        }
-
-        .vice-icon {
-            font-size: 60px;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .vice-name {
-            font-size: 26px;
-            font-weight: 700;
-            color: var(--text-white);
-            margin-bottom: 10px;
-        }
-
-        .vice-role {
-            font-size: 16px;
-            color: var(--accent-silver);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        /* Department Cards */
+        /* Department Cards - verbessert */
         .department-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 28px;
-            margin-top: 35px;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
         }
 
         .department-card {
             background: linear-gradient(135deg, var(--dark-gray) 0%, var(--secondary-black) 100%);
-            padding: 35px;
-            border-radius: 12px;
+            padding: 40px;
+            border-radius: 14px;
             border: 2px solid var(--medium-gray);
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .department-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(37,99,235,0.1) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .department-card:hover::before {
+            opacity: 1;
         }
 
         .department-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(37,99,235,0.3);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 45px rgba(37,99,235,0.4);
             border-color: var(--fbi-blue-light);
         }
 
         .department-card h3 {
             color: var(--text-white);
-            margin-bottom: 18px;
-            font-size: 22px;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: 700;
         }
 
         .department-card p {
             color: var(--text-gray);
             font-size: 16px;
+            line-height: 1.9;
         }
 
-        /* Rank System */
+        .department-card p strong {
+            color: var(--fbi-gold);
+            display: block;
+            margin-bottom: 8px;
+            font-size: 15px;
+            letter-spacing: 1px;
+        }
+
+        /* Rank System - verbessert */
         .rank-container {
-            background: var(--dark-gray);
-            padding: 35px;
-            border-radius: 12px;
-            margin-top: 35px;
+            background: linear-gradient(135deg, var(--dark-gray) 0%, #0a0a0a 100%);
+            padding: 40px;
+            border-radius: 14px;
+            margin-top: 40px;
+            border: 2px solid var(--medium-gray);
         }
 
         .rank-columns {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 12px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 16px;
         }
 
         .rank-item {
-            background: rgba(0,0,0,0.4);
-            padding: 16px 28px;
-            margin-bottom: 10px;
+            background: rgba(0,0,0,0.5);
+            padding: 18px 32px;
+            margin-bottom: 12px;
             border-radius: 10px;
-            border-left: 4px solid var(--medium-gray);
+            border-left: 5px solid var(--medium-gray);
             color: var(--text-light);
             transition: all 0.3s ease;
             font-size: 16px;
+            font-weight: 500;
         }
 
         .rank-item:hover {
-            transform: translateX(10px);
-            background: rgba(0,0,0,0.6);
+            transform: translateX(12px);
+            background: rgba(0,0,0,0.7);
             border-left-color: var(--fbi-blue-light);
             color: var(--text-white);
+            box-shadow: 0 4px 16px rgba(37,99,235,0.3);
         }
 
         .rank-item.top-rank {
-            background: linear-gradient(90deg, rgba(192,192,192,0.2) 0%, rgba(0,0,0,0.4) 100%);
-            border-left-color: var(--accent-silver);
+            background: linear-gradient(90deg, rgba(212,175,55,0.25) 0%, rgba(0,0,0,0.5) 100%);
+            border-left-color: var(--fbi-gold);
             color: var(--text-white);
-            font-weight: 600;
+            font-weight: 700;
         }
 
-        /* Footer */
+        .rank-item.top-rank:hover {
+            background: linear-gradient(90deg, rgba(212,175,55,0.35) 0%, rgba(0,0,0,0.7) 100%);
+            box-shadow: 0 6px 20px rgba(212,175,55,0.3);
+        }
+
+        /* Footer - verbessert */
         footer {
-            background: var(--primary-black);
-            padding: 45px 35px;
+            background: linear-gradient(180deg, var(--primary-black) 0%, #000000 100%);
+            padding: 50px 40px;
             text-align: center;
-            border-top: 3px solid var(--medium-gray);
-            margin-top: 90px;
+            border-top: 4px solid var(--fbi-blue);
+            margin-top: 100px;
         }
 
         footer p {
             color: var(--text-gray);
-            margin: 12px 0;
+            margin: 14px 0;
             font-size: 16px;
         }
 
-        /* Scroll to Top */
+        /* Scroll to Top - verbessert */
         .scroll-top {
             position: fixed;
-            bottom: 35px;
-            right: 35px;
-            width: 55px;
-            height: 55px;
-            background: var(--dark-gray);
+            bottom: 40px;
+            right: 40px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--fbi-blue) 0%, var(--fbi-blue-light) 100%);
             color: var(--text-white);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            border: 2px solid var(--medium-gray);
+            border: 3px solid var(--medium-gray);
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s ease;
             z-index: 999;
+            box-shadow: 0 8px 24px rgba(30,58,138,0.4);
         }
 
         .scroll-top.show {
@@ -542,28 +735,45 @@
         }
 
         .scroll-top:hover {
-            background: var(--fbi-blue-light);
-            transform: translateY(-6px);
-            box-shadow: 0 8px 20px rgba(37,99,235,0.4);
+            background: linear-gradient(135deg, var(--fbi-blue-light) 0%, var(--fbi-gold) 100%);
+            transform: translateY(-8px) scale(1.1);
+            box-shadow: 0 12px 32px rgba(37,99,235,0.6);
         }
 
-        /* Responsive */
+        /* Responsive Design */
         @media (max-width: 768px) {
             .fbi-text {
-                font-size: 56px;
+                font-size: 64px;
+                letter-spacing: 8px;
             }
 
             .hero-title {
-                font-size: 36px;
+                font-size: 40px;
+            }
+
+            .hero-subtitle {
+                font-size: 18px;
             }
 
             .content-section {
-                padding: 35px 22px;
+                padding: 40px 28px;
+            }
+
+            .info-section {
+                padding: 40px 28px;
+            }
+
+            .vice-section {
+                padding: 40px 28px;
+            }
+
+            .story-section {
+                padding: 40px 28px;
             }
 
             nav ul {
                 flex-direction: column;
-                gap: 12px;
+                gap: 8px;
             }
 
             .info-grid {
@@ -575,6 +785,10 @@
             }
 
             .rank-columns {
+                grid-template-columns: 1fr;
+            }
+
+            .vice-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -600,8 +814,9 @@
         <nav>
             <ul>
                 <li><a href="#personal-info" class="active">Persönliche Daten</a></li>
+                <li><a href="#vorgeschichte">Meine Geschichte</a></li>
                 <li><a href="#motivation">Motivation</a></li>
-                <li><a href="#fuehrung">Führungsqualitäten</a></li>
+                <li><a href="#fuehrung">Führung & Erfahrung</a></li>
                 <li><a href="#konzept">Konzept</a></li>
                 <li><a href="#rangsystem">Rangsystem</a></li>
                 <li><a href="#verbesserungen">Verbesserungen</a></li>
@@ -666,98 +881,231 @@
             </div>
         </section>
 
+        <!-- Vorgeschichte - NEU -->
+        <section class="story-section" id="vorgeschichte">
+            <h2><i class="fas fa-book"></i> Meine Geschichte auf der Insel</h2>
+            
+            <h3>Der Anfang - Von den Straßen zu den Sternen</h3>
+            <p>
+                Als ich vor über zwei Jahren zum ersten Mal einen Fuß auf diese Insel setzte, hatte ich ehrlich gesagt keine Ahnung, was mich erwarten würde. Ich war jung, unerfahren und hatte große Träume, aber keinen Plan. Wie viele andere auch landete ich bei der 18th Street Gang – nicht weil ich kriminell werden wollte, sondern weil ich dachte, dass Loyalität und Zusammenhalt das waren, wonach ich suchte.
+            </p>
+            
+            <p>
+                Die Zeit bei 18th hat mich einiges gelehrt. Ich habe gelernt, wie die Straße funktioniert, wie Hierarchien in illegalen Organisationen aufgebaut sind und vor allem: wie schnell alles nach hinten losgehen kann. Es gab Momente, in denen ich dachte, das wär's – nach einem gescheiterten Store-Überfall saß ich in einer Zelle und fragte mich: "Willst du wirklich den Rest deines Lebens so verbringen?"
+            </p>
+
+            <div class="story-quote">
+                "Manchmal braucht man einen Tiefpunkt, um zu erkennen, dass man für mehr bestimmt ist."
+            </div>
+
+            <h3>Der Wendepunkt - National Guard</h3>
+            <p>
+                Der Wechsel zur NG war mein persönlicher Neuanfang. Ich wollte beweisen – vor allem mir selbst – dass ich auch auf der richtigen Seite des Gesetzes etwas erreichen kann. Die ersten Wochen waren hart. Verdammt hart. Ich wurde kritisch beäugt, schließlich kam ich von der Straße. Aber ich biss mich durch, machte jeden Dienst, jede Übung mit und versuchte zu zeigen, dass meine Vergangenheit nicht definiert, wer ich bin.
+            </p>
+
+            <p>
+                Bei der NG habe ich zum ersten Mal richtig verstanden, was Teamwork bedeutet. Nicht dieses "wir gegen die" von der Gang, sondern echte Zusammenarbeit. Ich erinnere mich noch an meinen ersten großen Einsatz – wir mussten eine Geiselnahme bei der Humane Labs sichern. Mein Herz hämmerte so laut, dass ich dachte, alle können es hören. Aber wir haben es geschafft, alle Geiseln kamen lebend raus. In dem Moment wusste ich: Das hier ist richtig.
+            </p>
+
+            <h3>Von Ballas zu Bloods - Die andere Perspektive</h3>
+            <p>
+                Ihr fragt euch jetzt vielleicht: Warum ist er nach der NG wieder zu illegalen Familien? Gute Frage. Ich wollte verstehen, wie die andere Seite tickt – nicht als Krimineller, sondern als jemand, der später im FBI auch wirklich weiß, womit er es zu tun hat. Bei den Ballas und später bei den Bloods habe ich gesehen, wie komplex diese Strukturen sind. Es sind nicht einfach "böse Menschen" – es sind oft Leute, die keine andere Wahl gesehen haben oder falsche Entscheidungen getroffen haben.
+            </p>
+
+            <p>
+                Diese Zeit hat mir die Augen geöffnet. Ich habe gelernt, wie Gangs rekrutieren, wie sie operieren, welche internen Konflikte sie haben. Und ich habe auch gute Leute kennengelernt, die einfach im falschen Umfeld gelandet sind. Das hat mir eine Perspektive gegeben, die viele in den staatlichen Orgas nicht haben.
+            </p>
+
+            <h3>SAHP - Wo ich mich gefunden habe</h3>
+            <p>
+                Der Wechsel zum SAHP war dann der Moment, wo alles zusammenkam. Alle meine Erfahrungen – die guten und die schlechten – haben plötzlich Sinn ergeben. Als Vize-Leader konnte ich endlich zeigen, was ich drauf habe. Ich habe Einsätze geleitet, neue Rekruten ausgebildet und mit allen staatlichen Orgas zusammengearbeitet.
+            </p>
+
+            <p>
+                Was mich beim SAHP besonders geprägt hat, war ein Fall, bei dem wir wochenlang gegen eine korrupte Zelle in unseren eigenen Reihen ermittelt haben. Das war schmerzhaft – Kollegen, denen du vertraut hast, die dich verraten haben. Aber genau deshalb will ich jetzt zum FBI. Korruption ist wie Krebs – sie frisst alles von innen auf. Und ich will dazu beitragen, dass so etwas nicht mehr passiert.
+            </p>
+
+            <h3>Warum jetzt das FBI?</h3>
+            <p>
+                Nach zwei Jahren, unzähligen Einsätzen, zwei Vize-Leader-Positionen und einer Reise durch fast alle Bereiche dieser Insel bin ich bereit für den nächsten Schritt. Das FBI ist nicht einfach nur eine weitere staatliche Org für mich – es ist der Ort, wo ich alles, was ich gelernt habe, wirklich nutzen kann.
+            </p>
+
+            <p>
+                Ich kenne die Straße. Ich kenne die Gangs. Ich kenne die staatlichen Strukturen. Ich habe gesehen, was funktioniert und was nicht. Und ich habe eine Vision davon, wie das FBI wieder zu der Elite-Einheit werden kann, die es sein sollte – respektiert, gefürchtet von Kriminellen und ein Vorbild für alle anderen.
+            </p>
+
+            <div class="story-quote">
+                "Meine Vergangenheit hat mich geformt, aber meine Zukunft liegt im FBI."
+            </div>
+        </section>
+
         <!-- Motivation -->
         <section class="content-section" id="motivation">
             <h2><i class="fas fa-bullseye"></i> Warum ich Leader des FBI werden möchte</h2>
+            
             <p>
-                In den vergangenen zwei Jahren, die ich auf der Insel verbracht habe, konnte ich viele verschiedene Erfahrungen sammeln. Meine Reise begann bei der inoffiziellen Familie 18th Street Gang und führte über die NG zu den Ballas und Bloods bis hin zum SAHP. Insbesondere half mir die Kombination der Zusammenarbeit mit allen staatlichen Organisationen, gepaart mit den Einblicken in das Leben der inoffiziellen Familien und Gangs, ein ganzheitliches Bild zu erlangen.
+                Ganz ehrlich? Weil ich das FBI vermisse. Nicht das FBI, das aktuell existiert, sondern das FBI, von dem ich gehört habe – diese legendäre Organisation, vor der jeder Kriminelle Respekt hatte. In den letzten Monaten habe ich gesehen, wie das FBI an Bedeutung verloren hat, wie es zur Durchlaufstation für Leute geworden ist, die einfach nur einen staatlichen Job wollten. Das tut weh.
             </p>
+
             <p>
-                Gerade dieses ist essenziell, um eine Organisation erfolgreich führen zu können. Mein Wunsch Leader zu werden, rührt daher, all diese Erfahrungen in eine für mich neue Organisation miteinfließen zu lassen. Ziel ist es, das FIB von Grund auf neu aufzurollen und so für Spaß und Abwechslung zu sorgen. Nach meinen zwei Vize-Leader Posten möchte ich nun gern meine eigene Organisation formen.
+                Ich will das FBI nicht einfach nur "leiten" – ich will es komplett neu aufbauen. Von Grund auf. Mit Leuten, die wissen, was sie tun. Mit Agenten, die den Namen "Special Agent" auch wirklich verdienen. Mit einer Struktur, die Sinn macht und die funktioniert.
+            </p>
+
+            <div class="highlight-box">
+                <h3>Meine persönliche Mission</h3>
+                <p>
+                    Das FBI soll wieder zur Elite werden. Nicht jeder soll da reinkommen können. Wer beim FBI sein will, muss sich das verdienen. Keine 18-Jährigen mehr, die noch nie eine Waffe gehalten haben. Keine Leute, die nicht wissen, wie man ein anständiges Verhör führt. Stattdessen: Erfahrene Ermittler, die wissen, was sie tun.
+                </p>
+            </div>
+
+            <p>
+                Nach zwei Vize-Leader-Positionen ist es jetzt Zeit für den nächsten Schritt. Ich habe lang genug anderen geholfen, ihre Visionen umzusetzen. Jetzt will ich meine eigene Vision verwirklichen. Und ich bin bereit, die Verantwortung dafür zu übernehmen – mit allem, was dazugehört.
             </p>
         </section>
 
         <!-- Führungsqualitäten -->
         <section class="content-section" id="fuehrung">
-            <h2><i class="fas fa-medal"></i> Was mich als Leader auszeichnet</h2>
+            <h2><i class="fas fa-medal"></i> Führung & Erfahrung - Was ich mitbringe</h2>
+            
+            <h3>Was macht mich als Leader aus?</h3>
             <p>
-                Meine Führungsphilosophie basiert auf einem ausgewogenen Mix aus Disziplin und Ordnung, gepaart mit einem unverzichtbaren Sinn für Humor. Die Mitarbeit sollte nicht als reine Arbeit wahrgenommen werden, sondern auch stetig Spaß bereiten. Besonders wichtig empfinde ich das Aufrechterhalten eines offenen Ohres für Anliegen Dritter und eine objektive Situationsbewertung.
+                Ich bin keiner von diesen Leadern, die nur rumschreien und Befehle brüllen. Klar, es braucht Disziplin und Ordnung – ohne das funktioniert keine Organisation. Aber was genauso wichtig ist: Die Leute müssen Bock haben, zur Arbeit zu kommen. Wenn jeder Dienst zur Qual wird, verlierst du deine besten Leute.
             </p>
+
             <p>
-                Meine Fähigkeiten als Leader konnte ich bereits in der Position des Vize-Leaders in der NG und im SAHP unter Beweis stellen.
+                Mein Führungsstil basiert auf drei Säulen: <strong>Respekt, Kommunikation und Konsequenz</strong>. Jeder in meinem Team wird respektiert – egal ob Recruit oder High Command. Jeder kann zu mir kommen und Probleme ansprechen. Aber wenn jemand Scheiße baut, gibt's auch klare Konsequenzen. Fair, aber konsequent.
+            </p>
+
+            <h3>Konkrete Erfahrungen aus meinen Vize-Positionen</h3>
+            
+            <div class="highlight-box">
+                <h3>Bei der National Guard</h3>
+                <p>
+                    <strong>Situation:</strong> Wir hatten massive Probleme mit unorganisierten Einsätzen. Jeder hat gemacht, was er wollte, es gab keine klare Kommunikation.
+                </p>
+                <p>
+                    <strong>Meine Lösung:</strong> Ich habe ein neues Kommunikationssystem eingeführt – klare Radio-Protokolle, definierte Einsatzleiter und regelmäßige Debriefings nach jedem größeren Event. Das Chaos wurde zu koordinierter Effizienz.
+                </p>
+                <p>
+                    <strong>Ergebnis:</strong> Unsere Erfolgsrate bei Einsätzen stieg messbar, und andere Orgas fingen an, uns als professionell wahrzunehmen.
+                </p>
+            </div>
+
+            <div class="highlight-box">
+                <h3>Beim SAHP</h3>
+                <p>
+                    <strong>Situation:</strong> Wir hatten einen internen Korruptionsfall – drei Officers haben Drogen aus Beschlagnahmungen verkauft.
+                </p>
+                <p>
+                    <strong>Meine Herangehensweise:</strong> Statt alles unter den Teppich zu kehren, habe ich eine interne Ermittlung geleitet. War nicht leicht, waren Kollegen. Aber Korruption kann man nicht tolerieren.
+                </p>
+                <p>
+                    <strong>Ergebnis:</strong> Alle drei wurden entlassen, aber wichtiger: Das gesamte Team hatte danach wieder Vertrauen in die Führung. Transparenz schafft Vertrauen.
+                </p>
+            </div>
+
+            <h3>Was ich gelernt habe</h3>
+            <p>
+                Durch meine Zeit bei verschiedenen Organisationen habe ich gelernt, was funktioniert und was nicht. Ich habe gesehen, wie gute Leader ihre Teams motivieren, aber auch wie schlechte Leader ihre Orgas ruinieren. Ich habe Fehler gemacht – ja, definitiv. Aber ich habe daraus gelernt.
+            </p>
+
+            <p>
+                Die wichtigste Lektion? <strong>Ein Leader ist nur so gut wie sein Team.</strong> Deshalb ist die Auswahl der richtigen Leute so wichtig. Und genau das will ich beim FBI anders machen.
             </p>
         </section>
 
         <!-- Konzept -->
         <section class="content-section" id="konzept">
-            <h2><i class="fas fa-lightbulb"></i> Konzept der Organisation</h2>
+            <h2><i class="fas fa-lightbulb"></i> Mein Konzept für das FBI</h2>
             
             <div class="highlight-box">
-                <h3>Eliteeinheit im Dienst der Gerechtigkeit</h3>
+                <h3>Die Grundidee: Qualität vor Quantität</h3>
                 <p>
-                    Willkommen im Zentrum der Gerechtigkeit und Exzellenz, wo das Federal Investigation Bureau als Inbegriff von Zuverlässigkeit, Fachwissen und unermüdlichem Engagement gegen das Verbrechen steht. Im FIB vereinen sich die klügsten Köpfe und die tapfersten Herzen, um die Nation vor den Schatten der Kriminalität und Korruption zu schützen.
+                    Das FBI wird komplett umstrukturiert. Wir werden nicht die größte staatliche Org sein – aber die beste. Jeder einzelne Agent muss ein Profi sein. Keine Ausnahmen.
                 </p>
             </div>
 
-            <h3>Elitäre Organisation</h3>
+            <h3>Die neue Aufnahmepolitik</h3>
             <p>
-                Das FIB repräsentiert die Elite der Strafverfolgungsbehörden, eine Organisation, deren Gründung auf dem Prinzip der Exzellenz beruht. Jedes Mitglied des FIB wurde nach strengsten Standards ausgewählt und ausgebildet, um sicherzustellen, dass nur die Besten der Besten unsere Reihen stärken. Unsere Agenten sind nicht nur hochqualifiziert, sondern auch leidenschaftlich engagiert, um den Bürgern mit höchster Professionalität und Integrität zu dienen.
+                <strong>Mindestanforderungen für neue Agenten:</strong>
+            </p>
+            <ul>
+                <li>Mindestens 3 Monate Erfahrung in einer anderen staatlichen Organisation (LSPD, SAHP, NG)</li>
+                <li>Nachweis von erfolgreichen Ermittlungen oder besonderen Leistungen</li>
+                <li>Empfehlungsschreiben von einem High Command Member der vorherigen Org</li>
+                <li>Bestandenes FBI-Aufnahmeassessment (Situationstests, Verhörtraining, Schießprüfung)</li>
+            </ul>
+
+            <p>
+                Warum so streng? Weil das FBI die Speerspitze sein soll. Wenn jeder reinkommen kann, sind wir nicht besser als die Polizei. Wir brauchen Leute, die wissen, was sie tun, die unter Druck funktionieren und die eigenständig denken können.
             </p>
 
-            <h3>Effektive Korruptionsverfolgung</h3>
+            <h3>Unsere Hauptaufgaben</h3>
+            
+            <h4>1. Wantedjagd - Endlich richtig</h4>
             <p>
-                Das FIB nimmt eine führende Rolle im Kampf gegen Korruption ein. Mit einer spezialisierten Division für die Bekämpfung korrupter Praktiken sowohl innerhalb staatlicher Institutionen als auch im privaten Sektor arbeiten wir unermüdlich daran, Gerechtigkeit zu gewährleisten und das Vertrauen der Öffentlichkeit in unsere Institutionen zu stärken. Unsere rigorosen Untersuchungen und unser Engagement für Transparenz setzen Maßstäbe im Kampf gegen die Korruption.
+                Hand aufs Herz: Wann habt ihr das letzte Mal gesehen, dass das FBI aktiv nach Wanted-Personen jagt? Genau. Das ändern wir. Wir werden eine dedizierte Wanted-Taskforce haben, die täglich rausgeht und die meistgesuchten Verbrecher jagt. Mit Strategie, mit Koordination, mit Erfolg.
             </p>
 
-            <h3>Verbrecherjagd (Wantedjagd)</h3>
+            <h4>2. Korruptionsbekämpfung - Keine Gnade</h4>
             <p>
-                Das FIB ist an der Spitze der Fahndung nach hochrangigen Verbrechern. Unsere spezialisierten Einheiten, ausgestattet mit den modernsten Technologien und Methoden, sind unermüdlich im Einsatz, um jene zur Rechenschaft zu ziehen, die die Sicherheit und den Frieden unserer Bürger bedrohen. Durch strategische Ermittlungen, verdeckte Operationen und die Zusammenarbeit mit Partnern sorgen wir dafür, dass keine Bedrohung unadressiert bleibt.
+                Korruption ist das größte Gift in staatlichen Strukturen. Deshalb wird unsere Corruption Office Abteilung absolute Priorität haben. Wir werden nicht nur reaktiv arbeiten, sondern proaktiv ermitteln. Und wenn wir korrupte Beamte finden – egal in welcher Org – werden sie zur Rechenschaft gezogen.
+            </p>
+
+            <h4>3. Gang- und Familienermittlungen</h4>
+            <p>
+                Ich kenne die Gang-Strukturen von innen. Ich weiß, wie sie arbeiten, wo ihre Schwachstellen sind. Das FBI wird langfristige verdeckte Ermittlungen durchführen, um die großen Organisationen von innen zu Fall zu bringen. Nicht nur schnelle Verhaftungen – nachhaltige Zerschlagung.
+            </p>
+
+            <h3>Die Abteilungen im Detail</h3>
+            <div class="department-grid">
+                <div class="department-card">
+                    <h3>🔍 FIB Corruption Office</h3>
+                    <p><strong>FIB Integrity & Oversight Division</strong></p>
+                    <p>
+                        Spezialisiert auf interne und externe Korruptionsermittlungen. Diese Abteilung arbeitet mit höchster Diskretion und hat direkten Zugang zum Director. Kein Fall ist zu klein, kein Name zu groß.
+                    </p>
+                </div>
+                <div class="department-card">
+                    <h3>👥 FIB Talent Forge</h3>
+                    <p><strong>FIB Personnel & Training Nexus</strong></p>
+                    <p>
+                        Zuständig für Rekrutierung, Ausbildung und Weiterentwicklung unserer Agenten. Hier werden aus guten Officers exzellente FBI-Agenten gemacht. Kontinuierliches Training, realistische Szenarien, hohe Standards.
+                    </p>
+                </div>
+                <div class="department-card">
+                    <h3>⚡ FIB Federal Taskforce</h3>
+                    <p><strong>FIB Gang Deterrence & Family Crimes Unit</strong></p>
+                    <p>
+                        Die Eliteeinheit für komplexe Gang-Ermittlungen. Verdeckte Ops, langfristige Infiltration, koordinierte Schläge. Diese Jungs sind die Besten der Besten und nehmen sich die härtesten Fälle vor.
+                    </p>
+                </div>
+            </div>
+
+            <h3>Zusammenarbeit mit anderen Organisationen</h3>
+            <p>
+                Das FBI arbeitet nicht isoliert. Wir werden regelmäßige Joint-Operations mit LSPD, SAHP und NG durchführen. Gemeinsame Trainings, gemeinsame Einsätze, gemeinsame Erfolge. Aber auch klare Verantwortlichkeiten – jeder weiß, wer wofür zuständig ist.
             </p>
 
             <div class="highlight-box">
-                <h3>Grundkonzept</h3>
+                <h3>Die Vision</h3>
                 <p>
-                    Es ist geplant, das FIB einer grundlegenden Neugestaltung zu unterziehen. Besonders die Anforderungen für die Aufnahme in die Organisation werden deutlich angehoben. Das FIB als höchste Ermittlungsbehörde sollte nur mit Agents besetzt sein, auf deren Kompetenz und Zuverlässigkeit uneingeschränkt Verlass ist.
+                    In sechs Monaten soll das FBI wieder die Organisation sein, vor der sich Kriminelle fürchten und zu der andere staatliche Orgas aufschauen. Eine Elite-Einheit, die durch Professionalität, Effizienz und Integrität überzeugt.
                 </p>
-                <p>
-                    Eine wesentliche Bedingung für die Aufnahme in die Organisation wird vorherige Erfahrung in einer anderen exekutiven staatlichen Organisation sein. Zudem soll die Zahl der Mitglieder reduziert werden, um sicherzustellen, dass nur erfahrene und fähige Mitarbeiter Teil der Organisation werden. Besonders sollen auch die Grundaufgaben des FIBs, wie Wantedjagd, voll ausgeschöpft werden.
+                <p style="margin-top: 15px;">
+                    Das ist mein Versprechen. Und ich werde alles dafür tun, es zu erfüllen.
                 </p>
             </div>
-
-            <h3>Abteilungen</h3>
-            <div class="department-grid">
-                <div class="department-card">
-                    <h3>FIB Corruption Office</h3>
-                    <p><strong>FIB Integrity & Oversight</strong></p>
-                    <p>Korruptionsbekämpfung</p>
-                </div>
-                <div class="department-card">
-                    <h3>FIB Talent Forge</h3>
-                    <p><strong>FIB Personnel & Training Nexus</strong></p>
-                    <p>HR und Ausbildungen</p>
-                </div>
-                <div class="department-card">
-                    <h3>FIB Federal Taskforce</h3>
-                    <p><strong>FIB Gang Deterrence & Family Crimes</strong></p>
-                    <p>Gang und Familien Spezialeinheit</p>
-                </div>
-            </div>
-
-            <h3>Vorgeschichte</h3>
-            <p>
-                Das Federal Investigation Bureau wurde als Reaktion auf die wachsende organisierte Kriminalität und Korruption gegründet. In einer Zeit, in der das Vertrauen in staatliche Institutionen erschüttert war, entstand die Vision einer Eliteeinheit, die unabhängig, professionell und mit höchster Integrität agiert.
-            </p>
-            <p>
-                Über die Jahre hat sich das FIB als unverzichtbare Säule der nationalen Sicherheit etabliert. Von spektakulären Fällen der Korruptionsaufdeckung bis hin zur Zerschlagung krimineller Netzwerke – das FIB hat stets bewiesen, dass Gerechtigkeit siegt, wenn sie mit Entschlossenheit und Professionalität verfolgt wird.
-            </p>
-            <p>
-                Heute steht das FIB vor neuen Herausforderungen. Die Kriminalität hat sich verändert, ist digitaler und vernetzter geworden. Doch unsere Mission bleibt unverändert: Den Bürgern zu dienen, die Gesetze zu wahren und für eine sichere Zukunft zu kämpfen.
-            </p>
         </section>
 
         <!-- Rangsystem -->
         <section class="content-section" id="rangsystem">
-            <h2><i class="fas fa-sitemap"></i> Rangsystem</h2>
+            <h2><i class="fas fa-sitemap"></i> Das neue Rangsystem</h2>
+            
+            <p>
+                Das Rangsystem wurde überarbeitet, um klare Karrierewege zu schaffen und Leistung zu belohnen. Jeder Rang bedeutet mehr Verantwortung, aber auch mehr Möglichkeiten.
+            </p>
+
             <div class="rank-container">
                 <div class="rank-columns">
                     <div>
@@ -768,7 +1116,7 @@
                         <div class="rank-item top-rank">26 [FIB] Chief of Staff</div>
                         <div class="rank-item">25 [FIB] Spy Agent</div>
                         <div class="rank-item">24 [FIB] Elite Agent</div>
-                        <div class="rank-item">23 [FIB] Special Agent in charge</div>
+                        <div class="rank-item">23 [FIB] Special Agent in Charge</div>
                         <div class="rank-item">22 [FIB] Supervisory Special Agent</div>
                         <div class="rank-item">21 [FIB] Special Agent</div>
                         <div class="rank-item">20 [FIB] Senior Field Agent</div>
@@ -796,34 +1144,93 @@
                     </div>
                 </div>
             </div>
+
+            <p style="margin-top: 30px;">
+                <strong>Wichtig:</strong> Aufstiege erfolgen leistungsbasiert. Wer sich reinhängt, wer Ergebnisse liefert, wer Initiative zeigt – der wird befördert. Zeit allein reicht nicht.
+            </p>
         </section>
 
         <!-- Verbesserungsvorschläge -->
         <section class="content-section" id="verbesserungen">
-            <h2><i class="fas fa-chart-line"></i> Verbesserungsvorschläge für das Rollenspiel</h2>
+            <h2><i class="fas fa-chart-line"></i> Konkrete Verbesserungen fürs Roleplay</h2>
+            
+            <h3>Sofortmaßnahmen (Erste 30 Tage)</h3>
             <ul>
-                <li>Erhöhung des Aufnahmestandards zur Sicherung von Kompetenz eines jeden Mitarbeiters</li>
-                <li>Beständige Wantedjagd mit dem Ziel die Anzahl der gesuchten Verbrecher so niedrig wie möglich zu halten</li>
-                <li>Einführung von regelmäßigen Übungen mit anderen Organisationen zur Verbesserung der Zusammenarbeit</li>
-                <li>Ausarbeitung konsequenter Leitfäden um die Verhandlungen bei verschiedenen Überfällen abwechslungsreich zu gestalten</li>
-                <li>Einbeziehung anderer Organisationen in taktische Einsätze (sofern möglich)</li>
-                <li>Umfangreiche Undercover-Ermittlungen</li>
+                <li><strong>Rekrutierungsstopp:</strong> Erst mal keine neuen Leute, bis wir das Team sortiert haben</li>
+                <li><strong>Team-Assessment:</strong> Jeder Agent bekommt ein Gespräch – wer passt, bleibt; wer nicht, muss gehen</li>
+                <li><strong>Training-Bootcamp:</strong> Intensive 2-wöchige Trainingsphase für alle bestehenden Mitglieder</li>
+                <li><strong>SOP-Überarbeitung:</strong> Neue, klare Standard Operating Procedures für alle Bereiche</li>
             </ul>
 
+            <h3>Mittelfristige Ziele (2-3 Monate)</h3>
+            <ul>
+                <li><strong>Wanted-Quote:</strong> Ziel ist es, die Anzahl der High-Priority Wanted um 40% zu reduzieren</li>
+                <li><strong>Inter-Org Training:</strong> Monatliche gemeinsame Übungen mit LSPD, SAHP und NG</li>
+                <li><strong>Undercover-Programm:</strong> Aufbau eines professionellen UC-Programms mit klaren Richtlinien</li>
+                <li><strong>Intel-Network:</strong> Aufbau eines Informantennetzwerks in allen großen Gangs</li>
+            </ul>
+
+            <h3>Langfristige Vision (6+ Monate)</h3>
+            <ul>
+                <li><strong>FBI-Academy:</strong> Eigene Ausbildungseinrichtung für neue Agenten</li>
+                <li><strong>Specialized Units:</strong> Cybercrime, Hostage Rescue Team, Tactical Response Unit</li>
+                <li><strong>Community Outreach:</strong> Öffentliche Events, um das Image des FBI zu verbessern</li>
+                <li><strong>Best Practice Standards:</strong> Das FBI soll zum Vorbild für alle anderen Orgs werden</li>
+            </ul>
+
+            <h3>Konkrete RP-Verbesserungen</h3>
             <div class="highlight-box">
-                <h3>Das FIB: Ein Pfeiler der Exzellenz, Vertrauenswürdigkeit und Rechtschaffenheit</h3>
-                <p>Danke für eure Zeit!</p>
-                <p style="margin-top: 15px; font-weight: 600;">Mit freundlichen Grüßen,<br>Vincenzo Young</p>
+                <h3>Verhandlungen bei Überfällen</h3>
+                <p>
+                    Schluss mit dem immer gleichen "Ihr bekommt freies Geleit, gebt die Geiseln frei"-Gelaber. Wir arbeiten echte Verhandlungsleitfäden aus, trainieren verschiedene Szenarien und sorgen dafür, dass jede Verhandlung anders und spannend wird.
+                </p>
+            </div>
+
+            <div class="highlight-box">
+                <h3>Ermittlungsarbeit</h3>
+                <p>
+                    Wir werden echte Cases aufbauen. Mit Beweisen, mit Zeugenaussagen, mit Observationen. Nicht einfach nur "Wanted gesehen, festgenommen, fertig". Richtige detective work, die auch für alle Beteiligten interessantes RP schafft.
+                </p>
+            </div>
+
+            <div class="highlight-box">
+                <h3>Korruptionsermittlungen</h3>
+                <p>
+                    Diese werden transparent aber diskret ablaufen. Verdachtsfälle werden gründlich untersucht, Beweise gesammelt und dann erst gehandelt. Keine vorschnellen Beschuldigungen, aber auch keine Vertuschen.
+                </p>
+            </div>
+
+            <h3>Mein persönliches Versprechen</h3>
+            <p>
+                Ich werde nicht perfekt sein. Ich werde Fehler machen. Aber ich verspreche euch: Ich werde immer alles geben, um das FBI zur besten Organisation auf der Insel zu machen. Ich werde fair sein, ich werde zuhören, und ich werde für mein Team kämpfen.
+            </p>
+
+            <p>
+                Das FBI verdient einen Leader, der nicht nur den Job macht, sondern der wirklich dahintersteht. Der eine Vision hat und bereit ist, dafür zu arbeiten. Ich bin dieser Leader.
+            </p>
+
+            <div class="highlight-box">
+                <h3>Danke für eure Zeit!</h3>
+                <p>
+                    Ich weiß, das war eine lange Bewerbung. Aber das FBI ist mir zu wichtig, um nur ein paar Standardsätze hinzuschreiben. Wenn ihr jemanden sucht, der das FBI wirklich verändern will – dann bin ich euer Mann.
+                </p>
+                <p style="margin-top: 20px; font-weight: 600;">
+                    Mit Respekt und Entschlossenheit,<br>
+                    Vincenzo Young
+                </p>
+                <p style="margin-top: 15px; font-style: italic; color: var(--text-gray);">
+                    "Von den Straßen zu den Sternen – bereit für das FBI."
+                </p>
             </div>
         </section>
     </div>
 
     <!-- Footer -->
     <footer>
-        <p style="font-size: 20px; font-weight: 600;">FBI Leadership Bewerbung</p>
-        <p>Vincenzo Young | ID: 160115 | Visum: 43</p>
+        <p style="font-size: 22px; font-weight: 700; color: var(--text-white);">FBI Leadership Bewerbung</p>
+        <p style="font-size: 18px; margin-top: 15px;">Vincenzo Young | ID: 160115 | Visum: 43</p>
         <p>Discord: dernoov_ | Familie: Hells Angels</p>
-        <p style="margin-top: 20px; font-size: 14px; opacity: 0.7;">© 2024 Federal Investigation Bureau</p>
+        <p style="margin-top: 25px; font-size: 14px; opacity: 0.6;">© 2024 Federal Investigation Bureau - Leadership Application</p>
     </footer>
 
     <!-- Scroll to Top -->
@@ -832,7 +1239,7 @@
     </div>
 
     <script>
-        // Navigation
+        // Navigation Active State
         const navLinks = document.querySelectorAll('nav a');
         const sections = document.querySelectorAll('section');
 
@@ -840,7 +1247,7 @@
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                if (pageYOffset >= (sectionTop - 220)) {
+                if (pageYOffset >= (sectionTop - 250)) {
                     current = section.getAttribute('id');
                 }
             });
@@ -854,7 +1261,7 @@
 
             // Scroll to Top Button
             const scrollTop = document.getElementById('scrollTop');
-            if (window.pageYOffset > 350) {
+            if (window.pageYOffset > 400) {
                 scrollTop.classList.add('show');
             } else {
                 scrollTop.classList.remove('show');
@@ -868,20 +1275,26 @@
                 const targetId = link.getAttribute('href').slice(1);
                 const targetSection = document.getElementById(targetId);
                 if (targetSection) {
-                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                    targetSection.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
             });
         });
 
         // Scroll to Top
         document.getElementById('scrollTop').addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({ 
+                top: 0, 
+                behavior: 'smooth' 
+            });
         });
 
-        // Animate on Scroll
+        // Intersection Observer für Animationen
         const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -120px 0px'
+            threshold: 0.15,
+            rootMargin: '0px 0px -100px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
@@ -893,11 +1306,21 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.content-section, .info-section, .vice-section, .info-card, .department-card, .vice-card').forEach(el => {
+        // Elemente für Animation vorbereiten
+        document.querySelectorAll('.content-section, .info-section, .vice-section, .story-section, .info-card, .department-card, .vice-card, .highlight-box').forEach(el => {
             el.style.opacity = '0';
-            el.style.transform = 'translateY(35px)';
-            el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+            el.style.transform = 'translateY(40px)';
+            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
             observer.observe(el);
+        });
+
+        // Parallax Effect für Hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.fbi-hero');
+            if (hero && scrolled < hero.offsetHeight) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
         });
     </script>
 </body>
